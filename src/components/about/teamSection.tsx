@@ -2,11 +2,12 @@ import {
 	IAboutPageData,
 	ITeamMember,
 } from "@/utils/api/types/screenTypes/aboutScreen.interface";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "@/assets/styles/about.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import Image from "next/image";
 import { IImageFormat } from "@/utils/api/types/image.interface";
+import { countPosition } from "@/utils/countPosition";
 type props = {
 	data: IAboutPageData;
 };
@@ -65,7 +66,29 @@ export const TeamSection = ({ data }: props) => {
 			active: false,
 		},
 	]);
+	const [containerHeight, setContainerHeight] = useState(0);
+	const containerRef = useRef<HTMLDivElement>(null);
+	useEffect(() => {
+		const calculateHeight = () => {
+			if (containerRef.current) {
+				const width = containerRef.current.offsetWidth;
+				const height = width * 0.9;
+				setContainerHeight(height);
+			}
+		};
 
+		calculateHeight();
+
+		const handleResize = () => calculateHeight();
+		window.addEventListener("resize", handleResize);
+
+		const interval = setInterval(calculateHeight, 100);
+
+		return () => {
+			window.removeEventListener("resize", handleResize);
+			clearInterval(interval);
+		};
+	}, []);
 	return (
 		<section className={styles.teamSec}>
 			<div className={styles.teamSec__header}>
@@ -96,7 +119,13 @@ export const TeamSection = ({ data }: props) => {
 				<p className="sectionContent h3">{data.TeamSection.Title}</p>
 			</div>
 			<div className={`${styles.teamSec__teamWrapp} ${styles[layout]}`}>
-				<div className={styles.teamSec__mainCard} style={{ gridArea: "main" }}>
+				<div
+					className={
+						styles.teamSec__mainCard +
+						` ${layout === "alternative" ? styles.alternative : ""}`
+					}
+					style={{ gridArea: "main" }}
+				>
 					{mainMember && (
 						<>
 							<Image
@@ -110,33 +139,42 @@ export const TeamSection = ({ data }: props) => {
 						</>
 					)}
 				</div>
-				{data.TeamSection.Team.map((member, index) => {
-					// const pos =
-					// 	layout === "default"
-					// 		? member.DefaultPosition
-					// 		: member.AlternativePosition;
+				<div
+					ref={containerRef}
+					style={{
+						height: containerHeight > 0 ? `${containerHeight}px` : "600px",
+					}}
+					className={
+						styles.teamSec__otherTeam +
+						` ${layout === "alternative" ? styles.alternative : ""}`
+					}
+				>
+					{data.TeamSection.Team.map((member, index) => {
+						const pos =
+							layout !== "alternative"
+								? member.DefaultPosition
+								: member.AlternativePosition;
 
-					const area = `pos${index + 1}`;
-
-					return (
-						<div
-							key={member.id}
-							className={styles.teamSec__card}
-							style={{ gridArea: area }}
-							onClick={() => {
-								setMainMember(member);
-							}}
-							{...hoverProps}
-						>
-							<Image
-								src={process.env.NEXT_PUBLIC_URL + member.Image.url}
-								alt={member.Name}
-								width={member.Image.width}
-								height={member.Image.height}
-							/>
-						</div>
-					);
-				})}
+						return (
+							<div
+								key={member.id}
+								className={styles.teamSec__card}
+								style={countPosition(pos)}
+								onClick={() => {
+									setMainMember(member);
+								}}
+								{...hoverProps}
+							>
+								<Image
+									src={process.env.NEXT_PUBLIC_URL + member.Image.url}
+									alt={member.Name}
+									width={member.Image.width}
+									height={member.Image.height}
+								/>
+							</div>
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

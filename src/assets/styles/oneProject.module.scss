@@ -1,0 +1,71 @@
+.heroSection {
+	display: flex;
+	padding: var(--section-padding);
+	padding-bottom: 70px;
+	gap: 70px;
+	h1 {
+		width: 100%;
+	}
+	&__characteristicsWrapp {
+		padding-top: 20px;
+		display: flex;
+		flex-direction: row;
+	}
+	.info {
+		display: flex;
+		gap: 40px;
+
+		span:first-child {
+			padding-right: 10px;
+			display: inline-block;
+			color: var(--8e-gray);
+			text-align: start;
+		}
+	}
+}
+.aboutSection {
+	padding: 35px 0px;
+	border-top: 1px solid var(--b6-gray);
+	border-bottom: 1px solid var(--b6-gray);
+	display: flex;
+	gap: 70px;
+	h2 {
+		width: 100%;
+		color: var(--8e-gray);
+	}
+	&__accordions {
+		display: flex;
+		flex-direction: column;
+		gap: 35px;
+		img {
+			width: 100%;
+			object-fit: contain;
+			object-position: top left;
+			height: auto;
+			max-height: 500px;
+		}
+	}
+}
+
+.gallerySec {
+	padding: 35px 0px 100px 0px;
+	h2 {
+		color: var(--8e-gray);
+		padding-bottom: 35px;
+	}
+	.galleryWrapp {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		img {
+			cursor: pointer;
+			height: auto;
+		}
+	}
+	.item25 {
+		width: calc(25.29% - 20px);
+	}
+	.item33 {
+		width: calc(33.72% - 20px);
+	}
+}

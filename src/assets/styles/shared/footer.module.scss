@@ -1,0 +1,29 @@
+.footer {
+	padding-top: 100px;
+	padding-bottom: 20px;
+	background: var(--two-black);
+	color: var(--snow-white);
+	nav {
+		a {
+			color: var(--snow-white);
+		}
+		display: flex;
+		gap: 100px;
+		justify-content: end;
+		padding-bottom: 40px;
+		border-bottom: 1px solid var(--b6-gray);
+	}
+	&__footer {
+		padding-top: 40px;
+		display: flex;
+		justify-content: space-between;
+		gap: 10px;
+		a {
+			color: var(--snow-white);
+		}
+	}
+	&__left {
+		display: flex;
+		gap: 40px;
+	}
+}

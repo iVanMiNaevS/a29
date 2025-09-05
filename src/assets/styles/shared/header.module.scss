@@ -1,0 +1,50 @@
+header {
+	.header {
+		&__container {
+			display: flex;
+			gap: 100px;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&__content {
+			color: var(--two-black);
+			display: flex;
+			justify-content: space-between;
+			width: 100%;
+			max-width: 875px;
+			nav {
+				display: flex;
+				gap: 40px;
+			}
+		}
+		&__linkWrapp {
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			&:hover {
+				span {
+					opacity: 1;
+				}
+			}
+			span {
+				transition: 0.3s;
+				display: block;
+				margin-right: 6.5px;
+				width: 6px;
+				height: 6px;
+				border-radius: 10px;
+				opacity: 10%;
+				background: var(--8e-gray);
+			}
+			&.active {
+				span {
+					opacity: 1;
+				}
+			}
+			a {
+			}
+		}
+	}
+}

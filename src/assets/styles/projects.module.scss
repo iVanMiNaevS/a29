@@ -1,0 +1,27 @@
+.heroSection {
+	display: flex;
+	gap: 70px;
+	padding-top: 100px;
+	padding-bottom: 70px;
+	h1 {
+		width: 100%;
+		color: var(--b6-gray);
+	}
+}
+
+.projects__optionsWrapp {
+	padding-bottom: 70px;
+	display: flex;
+	gap: 20px;
+	button {
+		outline: none;
+		cursor: pointer;
+		font-size: 16px;
+		background: transparent;
+		border: none;
+		color: var(--8e-gray);
+	}
+	button.activeOption {
+		color: var(--two-black);
+	}
+}

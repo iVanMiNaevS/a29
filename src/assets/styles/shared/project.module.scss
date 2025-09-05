@@ -1,0 +1,35 @@
+.project {
+	cursor: pointer;
+	padding: 35px 0px;
+	border-top: 1px solid var(--b6-gray);
+	display: flex;
+	gap: 70px;
+	.content {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 40px;
+		width: calc(32.78% - 35px);
+		.info {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+
+			span {
+				display: inline-block;
+				color: var(--8e-gray);
+				width: 85px;
+				text-align: start;
+			}
+		}
+	}
+	.images {
+		display: flex;
+		gap: 20px;
+		width: calc(67.38% - 35px);
+		img {
+			width: calc(33.33% - 13px);
+			height: auto;
+		}
+	}
+}

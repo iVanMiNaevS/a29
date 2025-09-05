@@ -1,0 +1,193 @@
+.heroSection {
+	padding: var(--section-padding);
+	&__header {
+		display: flex;
+		padding-bottom: 70px;
+		p {
+			flex: 1 0 calc(67.33% - 20px);
+		}
+	}
+	h1 {
+		width: 100%;
+	}
+	&__sliderSecWrapp {
+		display: flex;
+		align-items: end;
+		gap: 70px;
+	}
+	&__personWrapp {
+		display: flex;
+		gap: 15px;
+		img {
+			width: 80px;
+			height: 80px;
+			object-fit: cover;
+			border-radius: 100%;
+			object-position: top;
+		}
+	}
+	&__sliderWrapp {
+		width: calc(32.66% - 20px);
+	}
+	&__slideWrapp {
+		min-height: 250px;
+		display: flex;
+		gap: 40px;
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+	&__personInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+		pre {
+			color: var(--8e-gray);
+		}
+	}
+
+	&__navigation {
+		display: flex;
+		padding-top: 40px;
+		gap: 30px;
+		div:hover {
+			svg {
+				path {
+					transition: 0.3s;
+					fill: var(--two-black);
+				}
+			}
+			cursor: pointer;
+		}
+		div:first-child {
+			svg {
+				transform: rotate(180deg);
+			}
+		}
+	}
+	&__img {
+		width: calc(67.33% - 20px);
+		height: 740px;
+	}
+}
+
+.teamSec {
+	padding: var(--section-padding);
+	&__header {
+		display: flex;
+		gap: 70px;
+		&Left {
+			width: 100%;
+			h2 {
+				color: var(--b6-gray);
+				padding-bottom: 30px;
+			}
+			button {
+				cursor: pointer;
+				background: transparent;
+				outline: none;
+				border: 1px solid var(--b6-gray);
+				border-radius: 100px;
+				padding: 20px 30px;
+				transition: 0.3s;
+				path,
+				rect {
+					transition: 0.3s;
+					fill: var(--two-black);
+				}
+			}
+			button.active {
+				background: var(--two-black);
+				path,
+				rect {
+					fill: var(--snow-white);
+				}
+			}
+		}
+		&BtnsWrapp {
+			display: flex;
+			gap: 20px;
+		}
+	}
+	&__mainCard {
+		width: 100%;
+		height: 100%;
+		img {
+			width: 100%;
+			height: 700px;
+			object-fit: cover;
+			object-position: center;
+			padding-bottom: 40px;
+		}
+		&Post {
+			color: var(--b6-gray);
+			padding-top: 10px;
+		}
+	}
+	&__teamWrapp {
+		display: grid;
+		gap: 20px;
+		width: 100%;
+		padding-top: 70px;
+		transition: 0.3s;
+		&.default {
+			grid-template-columns: repeat(9, 1fr);
+			grid-template-rows: repeat(3, auto);
+			grid-template-areas:
+				"main main main . . pos1 . pos2 pos3"
+				"main main main . . pos4 pos5 pos6 ."
+				"main main main . . . pos7 . pos8 ";
+		}
+
+		&.alternative {
+			grid-template-columns: repeat(9, 1fr);
+			grid-template-rows: repeat(3, auto);
+			grid-template-areas:
+				". pos1 . main main main pos2 . pos3"
+				"pos4 pos5 . main main main . pos6 ."
+				". . pos7 main main main pos8 . . ";
+		}
+	}
+	&__card {
+		cursor: pointer;
+		width: 170px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			display: block;
+			filter: grayscale(1);
+		}
+	}
+}
+
+.vacancySec {
+	padding: var(--section-padding);
+	h2 {
+		color: var(--b6-gray);
+		padding-bottom: 70px;
+	}
+	&__wrapp {
+		display: flex;
+		gap: 70px;
+	}
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		width: 100%;
+	}
+	img {
+		aspect-ratio: 875 / 465;
+		width: 48.076%;
+		height: auto;
+		object-fit: cover;
+	}
+	&__emailContainer {
+		margin-top: auto;
+	}
+	&__send {
+		display: block;
+		color: var(--8e-gray);
+	}
+}

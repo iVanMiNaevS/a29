@@ -1,0 +1,48 @@
+.dropDown {
+	cursor: pointer;
+	width: 100%;
+	padding-bottom: 35px;
+	border-bottom: 1px solid var(--b6-gray);
+	&__header {
+		user-select: none;
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	button {
+		outline: none;
+		border: none;
+		background: transparent;
+		svg {
+			transition: 0.3s;
+		}
+		svg.isActive {
+			transform: rotate(90deg);
+		}
+	}
+	&__body {
+		color: var(--8e-gray);
+	}
+}
+.dropDown.notBorder {
+	width: 100%;
+	border-bottom: none;
+	padding-bottom: 0px;
+	button {
+		outline: none;
+		border: none;
+		background: transparent;
+		svg {
+			transition: 0.3s;
+		}
+		svg.isActive {
+			transform: rotate(90deg);
+		}
+	}
+
+	border-bottom: none;
+}
+.dropDown.paddingTop {
+	padding-top: 35px;
+}

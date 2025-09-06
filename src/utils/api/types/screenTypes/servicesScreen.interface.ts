@@ -8,7 +8,7 @@ interface Stage {
 	Image: IImageFormat;
 }
 
-interface StageSection {
+export interface IStageSection {
 	id: number;
 	Title: string;
 	Stages: Stage[];
@@ -32,7 +32,7 @@ interface NotDoingAccordion {
 	Value: string;
 }
 
-interface NotDoingSection {
+export interface INotDoingSection {
 	id: number;
 	Title: string;
 	Accordions: NotDoingAccordion[];
@@ -54,8 +54,8 @@ export interface IServicesPageData {
 	id: number;
 	documentId: string;
 	ServicesSection: ServicesSection;
-	NotDoingSection: NotDoingSection;
+	NotDoingSection: INotDoingSection;
 	FaqSection: FaqSection;
 	Seo: ISeo;
-	StageSection: StageSection;
+	StageSection: IStageSection;
 }

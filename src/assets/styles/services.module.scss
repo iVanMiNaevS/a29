@@ -1,3 +1,6 @@
+.servicePage {
+	background: var(--snow-white);
+}
 .servicesSec {
 	padding: var(--section-padding);
 	&__header {
@@ -30,7 +33,143 @@
 	}
 }
 
+.notDoingSec {
+	position: relative;
+	padding: var(--section-padding);
+	color: var(--two-black);
+	transition: color 0.3s;
+	z-index: -1;
+	.overlay {
+		position: absolute;
+		inset: 0;
+		background: var(--two-black);
+		opacity: 0;
+		transition: opacity 0.3s;
+		z-index: 0;
+		pointer-events: none;
+	}
+
+	&.darkMode {
+		color: var(--snow-white);
+		h2 {
+			color: var(--snow-white);
+		}
+		.overlay {
+			opacity: 1;
+		}
+	}
+
+	.container {
+		position: relative;
+		z-index: 1;
+	}
+	&__header {
+		display: flex;
+		padding-bottom: 70px;
+		h2 {
+			width: 100%;
+			color: var(--two-black);
+		}
+	}
+	&__accordions {
+		width: 48%;
+		margin-left: auto;
+	}
+
+	.dropDown {
+		width: 100%;
+		padding-bottom: 35px;
+		border-bottom: 1px solid var(--b6-gray);
+		&__header {
+			user-select: none;
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+		button {
+			outline: none;
+			border: none;
+			background: transparent;
+			svg {
+				transition: 0.3s;
+			}
+			svg.isActive {
+				transform: rotate(90deg);
+			}
+		}
+		&__body {
+			color: var(--8e-gray);
+		}
+	}
+	.dropDown.notBorder {
+		width: 100%;
+		border-bottom: none;
+		padding-bottom: 0px;
+		button {
+			outline: none;
+			border: none;
+			background: transparent;
+			svg {
+				transition: 0.3s;
+			}
+			svg.isActive {
+				transform: rotate(90deg);
+			}
+		}
+
+		border-bottom: none;
+	}
+	.dropDown.paddingTop {
+		padding-top: 35px;
+	}
+}
+
+.stageSec {
+	padding: var(--section-padding);
+	&__header {
+		display: flex;
+		padding-bottom: 70px;
+		h2 {
+			width: 100%;
+		}
+	}
+	&__stagesWrapp {
+		display: flex;
+		flex-direction: column;
+	}
+	&__stage {
+		padding: 35px 0px;
+		display: flex;
+		gap: 70px;
+		justify-content: space-between;
+		border-top: 1px solid var(--b6-gray);
+		&ImgWrapp {
+			width: calc(50% - 35px);
+			// height: fit-content;
+			// aspect-ratio: 280 / 188;
+			img {
+				min-width: 280px;
+				width: 20%;
+				aspect-ratio: 280 / 188;
+				height: auto;
+				object-fit: cover;
+			}
+		}
+		&Content {
+			width: 48%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			pre {
+				color: var(--b6-gray);
+			}
+		}
+	}
+}
+
 .faqSec {
+	background: var(--snow-white);
 	padding: var(--section-padding);
 	&__header {
 		display: flex;

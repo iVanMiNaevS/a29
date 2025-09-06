@@ -2,11 +2,13 @@ import { getInfoPageService } from "@/utils/api/getInfoPageService";
 import { IServicesPageData } from "@/utils/api/types/screenTypes/servicesScreen.interface";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useRef } from "react";
 
 import styles from "@/assets/styles/services.module.scss";
 import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";
+import { NotDoingSection } from "@/components/services/notDoingSection";
+import { StageSection } from "@/components/services/stageSection";
 
 type props = {
 	data: IServicesPageData;
@@ -19,7 +21,7 @@ const Services = ({ data }: props) => {
 				<title>{data.Seo.Title}</title>
 				<meta name="description" content={data.Seo.Description} />
 			</Head>
-			<div className="container">
+			<div className={styles.servicePage + " container"}>
 				<section className={styles.servicesSec}>
 					<div className={styles.servicesSec__header}>
 						<h1 className="sectionTitle">услуги</h1>
@@ -57,25 +59,33 @@ const Services = ({ data }: props) => {
 						})}
 					</div>
 				</section>
+			</div>
+			<NotDoingSection data={data.NotDoingSection} />
+			<div className={styles.servicePage}>
+				<StageSection data={data.StageSection} />
 				<section className={styles.faqSec}>
-					<div className={styles.faqSec__header}>
-						<h2 className="sectionTitle">вопросы</h2>
-						<p className="h2 sectionContent">{data.FaqSection.Title}</p>
-					</div>
-					<div className={styles.faqSec__accordionsWrapp}>
-						<div className={styles.faqSec__accordions}>
-							{data.FaqSection.Accordions.map((quest, index) => {
-								return (
-									<DropDownInfo
-										key={quest.id}
-										paddingTop
-										notBorder={index === data.FaqSection.Accordions.length - 1}
-										title={quest.Title}
-									>
-										<pre>{quest.Description}</pre>
-									</DropDownInfo>
-								);
-							})}
+					<div className="container">
+						<div className={styles.faqSec__header}>
+							<h2 className="sectionTitle">вопросы</h2>
+							<p className="h2 sectionContent">{data.FaqSection.Title}</p>
+						</div>
+						<div className={styles.faqSec__accordionsWrapp}>
+							<div className={styles.faqSec__accordions}>
+								{data.FaqSection.Accordions.map((quest, index) => {
+									return (
+										<DropDownInfo
+											key={quest.id}
+											paddingTop
+											notBorder={
+												index === data.FaqSection.Accordions.length - 1
+											}
+											title={quest.Title}
+										>
+											<pre>{quest.Description}</pre>
+										</DropDownInfo>
+									);
+								})}
+							</div>
 						</div>
 					</div>
 				</section>

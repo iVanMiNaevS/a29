@@ -67,6 +67,7 @@
 	&__img {
 		width: calc(67.33% - 20px);
 		height: 740px;
+		object-fit: cover;
 	}
 }
 
@@ -153,6 +154,19 @@
 				". . pos7 main main main pos8 . . ";
 		}
 	}
+	&__swiper {
+		padding-top: 50px !important;
+		display: none !important;
+	}
+	&__slide {
+		img {
+			aspect-ratio: 300 / 375;
+			object-fit: cover;
+			width: 100%;
+			height: auto;
+		}
+	}
+
 	&__card {
 		cursor: pointer;
 		max-width: 170px;
@@ -195,5 +209,133 @@
 	&__send {
 		display: block;
 		color: var(--8e-gray);
+	}
+}
+
+@media (max-width: 1600px) {
+	.teamSec {
+		&__card {
+			max-width: 100%;
+		}
+		&__teamWrapp {
+			display: grid;
+			gap: 20px;
+			width: 100%;
+			aspect-ratio: 1720/830;
+			padding-top: 70px;
+			transition: 0.3s;
+			&.default {
+				.teamSec__mainCard {
+					width: 100%;
+					height: 100%;
+					img {
+						height: 590px;
+					}
+				}
+				grid-template-columns: repeat(6, 1fr);
+				grid-template-areas:
+					"main main  pos1 . pos2 pos3"
+					"main main   pos4 pos5 pos6 ."
+					"main main   . pos7 . pos8 ";
+			}
+
+			&.alternative {
+				.teamSec__mainCard {
+					padding: 0px 50px;
+				}
+				grid-template-columns: repeat(9, 1fr);
+				grid-template-areas:
+					". pos1 . main main main pos2 . pos3"
+					"pos4 pos5 . main main main . pos6 ."
+					". . pos7 main main main pos8 . . ";
+			}
+		}
+	}
+}
+
+@media (max-width: 1220px) {
+	.heroSection {
+		padding-bottom: 0px;
+		&__header {
+			display: flex;
+			flex-direction: column;
+			padding-bottom: 70px;
+			gap: 30px;
+			p {
+				flex: 100%;
+			}
+		}
+		&__sliderSecWrapp {
+			flex-direction: column;
+			gap: 50px;
+		}
+		&__sliderWrapp {
+			width: 100%;
+			padding-top: 50px;
+			padding-bottom: 50px;
+			border-top: 1px solid #f1f1f1;
+			border-bottom: 1px solid #f1f1f1;
+		}
+		&__slideWrapp {
+			min-height: auto;
+			justify-content: flex-start;
+		}
+		&__navigation {
+			padding-top: 0px;
+			justify-content: flex-end;
+		}
+		&__img {
+			width: 100%;
+			height: auto;
+			max-height: 500px;
+		}
+	}
+	.teamSec {
+		&__header {
+			flex-direction: column;
+			gap: 30px;
+			h2 {
+				padding-bottom: 0px;
+			}
+			&BtnsWrapp {
+				display: none;
+			}
+		}
+		&__teamWrapp {
+			display: none;
+		}
+		&__swiper {
+			display: block !important;
+		}
+	}
+}
+
+@media (max-width: 740px) {
+	.heroSection {
+		&__navigation {
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+	.vacancySec {
+		h2 {
+			padding-bottom: 20px;
+		}
+		&__wrapp {
+			flex-direction: column;
+			gap: 20px;
+			img {
+				width: 100%;
+				order: 1;
+			}
+		}
+		&__text {
+			order: 2;
+		}
+		&__emailContainer {
+			padding-top: 100px;
+		}
 	}
 }

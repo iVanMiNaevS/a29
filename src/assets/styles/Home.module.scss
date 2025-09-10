@@ -64,6 +64,7 @@
 		padding-bottom: 70px;
 	}
 	&__button {
+		text-align: center;
 		display: block;
 		cursor: pointer;
 		background: var(--snow-white);
@@ -82,6 +83,8 @@
 		padding-bottom: 70px;
 	}
 	&__img {
+		object-fit: cover;
+
 		user-select: none;
 		width: calc(33.33% - 47.55px);
 		height: 700px;
@@ -120,6 +123,7 @@
 	}
 	&__swiperWrapp {
 		display: flex;
+		gap: 100px;
 		flex-direction: column;
 		width: calc(33.33% - 47.55px);
 		justify-content: space-between;
@@ -205,10 +209,17 @@
 	&__contactInfoWrapp {
 		display: flex;
 		flex-direction: column;
+		justify-content: space-between;
 		gap: 42px;
 		width: 48%;
+		p {
+			width: fit-content;
+		}
 	}
 	&__email {
+		a {
+			width: fit-content;
+		}
 		display: flex;
 		flex-direction: column;
 		gap: 5px;
@@ -225,6 +236,132 @@
 			justify-content: center;
 			padding: 10px;
 			background: var(--b6-gray);
+		}
+	}
+}
+@media (max-width: 1440px) {
+	.reviewsSection {
+		&__img {
+			height: 100%;
+			min-height: 600px;
+		}
+	}
+}
+@media (max-width: 1220px) {
+	.aboutSection {
+		flex-direction: column;
+		gap: 50px;
+	}
+	.projectsSection {
+		&__header {
+			gap: 50px;
+			flex-direction: column;
+		}
+	}
+	.reviewsSection {
+		h2 {
+			padding-bottom: 50px;
+		}
+		&__reviewsWrapp {
+			justify-content: space-between;
+		}
+		&__swiperWrapp {
+			display: flex;
+			gap: 70px;
+			flex-direction: column;
+			width: calc(50% - 47.55px);
+			justify-content: space-between;
+		}
+		&__img {
+			user-select: none;
+			width: calc(50% - 47.55px);
+			height: 100%;
+			min-height: 610px;
+		}
+	}
+	.contactSection {
+		&__header {
+			display: flex;
+			gap: 30px;
+			flex-direction: column;
+			padding-bottom: 70px;
+			h4 {
+				width: 100%;
+				color: var(--b6-gray);
+			}
+		}
+	}
+}
+
+@media (max-width: 770px) {
+	.aboutSection {
+		gap: 30px;
+	}
+	.projectsSection {
+		&__projects {
+			padding-bottom: 30px;
+		}
+		&__header {
+			gap: 30px;
+			flex-direction: column;
+		}
+		&__button {
+			padding: 40px 65px;
+		}
+	}
+	.reviewsSection {
+		h2 {
+			text-align: left;
+			padding-bottom: 30px;
+		}
+		&__reviewsWrapp {
+			flex-direction: column;
+			gap: 30px;
+			width: 100%;
+		}
+		&__swiperWrapp {
+			width: 100%;
+			order: 2;
+			gap: 30px;
+		}
+		&__info {
+			padding-left: 20px;
+			&Footer {
+				flex-wrap: wrap;
+				gap: 10px;
+			}
+		}
+		&__img {
+			width: 100%;
+			min-height: auto;
+			order: 1;
+		}
+	}
+	.contactSection {
+		&__header {
+			padding-bottom: 30px;
+		}
+		&__content {
+			flex-direction: column;
+		}
+		&__contactInfoWrapp {
+			gap: 30px;
+			width: 100%;
+		}
+		&__menegerWrapp {
+			padding-left: 20px;
+		}
+	}
+}
+@media (max-width: 500px) {
+	.contactSection {
+		&__personInfo {
+			flex-direction: column;
+			padding-bottom: 30px;
+			img {
+				width: 120px;
+				height: 120px;
+			}
 		}
 	}
 }

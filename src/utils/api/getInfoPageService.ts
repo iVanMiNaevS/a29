@@ -10,14 +10,18 @@ export const getInfoPageService = async <T = IMainPageData>(
 		| "about-screen"
 		| "project-screen"
 		| "projects",
-	queryValues: string[] | [],
-	filters?: [{ filter: "$eq" | "$contains"; field: string; value: string }]
+	queryValues?: string[] | [],
+
+	filters?: { filter: "$eq" | "$contains"; field: string; value: string }[],
+	pagination?: { params: "page" | "pageSize"; value: number }[]
 ): Promise<{ data: T; meta: IMeta }> => {
 	try {
 		const objQuery: Record<string, string> = {};
-		queryValues.forEach(
-			(value, index) => (objQuery[`populate[${index}]`] = value)
-		);
+		if (queryValues) {
+			queryValues.forEach(
+				(value, index) => (objQuery[`populate[${index}]`] = value)
+			);
+		}
 		if (filters) {
 			filters.forEach(
 				(filter) =>
@@ -25,7 +29,12 @@ export const getInfoPageService = async <T = IMainPageData>(
 						filter.value)
 			);
 		}
-
+		if (pagination) {
+			pagination.forEach((paginationOne) => {
+				objQuery[`pagination[${paginationOne.params}]`] =
+					paginationOne.value.toString();
+			});
+		}
 		const queryParams = new URLSearchParams(objQuery);
 
 		const res = await fetch(

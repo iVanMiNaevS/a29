@@ -1,22 +1,38 @@
 import { IProject } from "@/utils/api/types/project.interface";
-import React, { useState } from "react";
+import React from "react";
 import { Project } from "../shared/project";
 import styles from "@/assets/styles/projects.module.scss";
-import { useCursorHover } from "@/hooks/useCursorHover";
 import { HaveAQuestSection } from "../shared/haveAQuestSection";
+
 type props = {
 	projects: IProject[];
+	lastProjectRef?: React.RefObject<HTMLDivElement | null>;
 };
 
-export const ProjectsSection = ({ projects }: props) => {
+export const ProjectsSection = ({ projects, lastProjectRef }: props) => {
 	return (
-		<section>
-			{projects
-				? projects.map((project) => {
-						return <Project key={project.id} project={project} />;
-				  })
-				: "Проектов пока что нет"}
+		<>
+			<section className={styles.projectsGrid}>
+				{projects.length > 0 ? (
+					projects.map((project, index) => {
+						// Если это последний проект, добавляем ref для отслеживания
+						const isLastProject = index === projects.length - 1;
+
+						return (
+							<div
+								key={project.id}
+								ref={isLastProject ? lastProjectRef : null}
+								className={styles.projectItem}
+							>
+								<Project project={project} />
+							</div>
+						);
+					})
+				) : (
+					<div>Проектов пока что нет</div>
+				)}
+			</section>
 			<HaveAQuestSection />
-		</section>
+		</>
 	);
 };

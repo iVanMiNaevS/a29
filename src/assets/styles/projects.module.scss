@@ -25,3 +25,13 @@
 		color: var(--two-black);
 	}
 }
+@media (max-width: 1220px) {
+	.heroSection {
+		padding-bottom: 30px;
+		gap: 30px;
+		flex-direction: column;
+	}
+	.projects__optionsWrapp {
+		padding-bottom: 30px;
+	}
+}

@@ -7,6 +7,7 @@ import styles from "@/assets/styles/about.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import Image from "next/image";
 import { IImageFormat } from "@/utils/api/types/image.interface";
+import { TeamSwiper } from "./teamSwiper";
 type props = {
 	data: IAboutPageData;
 };
@@ -111,11 +112,6 @@ export const TeamSection = ({ data }: props) => {
 					)}
 				</div>
 				{data.TeamSection.Team.map((member, index) => {
-					// const pos =
-					// 	layout === "default"
-					// 		? member.DefaultPosition
-					// 		: member.AlternativePosition;
-
 					const area = `pos${index + 1}`;
 
 					return (
@@ -138,6 +134,7 @@ export const TeamSection = ({ data }: props) => {
 					);
 				})}
 			</div>
+			<TeamSwiper data={data} />
 		</section>
 	);
 };

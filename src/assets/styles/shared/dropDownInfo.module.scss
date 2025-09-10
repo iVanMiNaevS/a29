@@ -46,3 +46,11 @@
 .dropDown.paddingTop {
 	padding-top: 35px;
 }
+
+@media (max-width: 770px) {
+	.dropDown {
+		&__header {
+			gap: 10px;
+		}
+	}
+}

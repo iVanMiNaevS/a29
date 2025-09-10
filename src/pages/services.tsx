@@ -89,7 +89,9 @@ const Services = ({ data }: props) => {
 						</div>
 					</div>
 				</section>
-				<HaveAQuestSection />
+				<div className="container">
+					<HaveAQuestSection />
+				</div>
 			</div>
 		</>
 	);

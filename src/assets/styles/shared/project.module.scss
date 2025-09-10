@@ -33,3 +33,34 @@
 		}
 	}
 }
+@media (max-width: 1015px) {
+	.project {
+		.images {
+			img {
+				width: calc(50% - 13px);
+			}
+			img:last-child {
+				display: none;
+			}
+		}
+	}
+}
+@media (max-width: 690px) {
+	.project {
+		flex-direction: column;
+		gap: 40px;
+		.content {
+			width: 100%;
+		}
+		.images {
+			width: 100%;
+			gap: 10px;
+			img {
+				width: calc(50% - 5px);
+			}
+			img:last-child {
+				display: none;
+			}
+		}
+	}
+}

@@ -7,3 +7,13 @@
 		height: 500px;
 	}
 }
+@media (max-width: 770px) {
+	.contactMapWrapp {
+		padding-bottom: 30px;
+		margin-top: -20px;
+		iframe {
+			aspect-ratio: 335 / 300;
+			height: auto;
+		}
+	}
+}

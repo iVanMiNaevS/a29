@@ -22,8 +22,11 @@ export default function Home({ data, contactData }: props) {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo.Title}</title>
-				<meta name="description" content={data.Seo.Description} />
+				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<meta
+					name="description"
+					content={data.Seo ? data.Seo.Description : "Описание"}
+				/>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>

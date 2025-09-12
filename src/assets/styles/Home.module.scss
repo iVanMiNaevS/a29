@@ -239,6 +239,13 @@
 		}
 	}
 }
+@media (max-width: 1600px) {
+	.reviewsSection {
+		&__img {
+			height: 525px;
+		}
+	}
+}
 @media (max-width: 1440px) {
 	.reviewsSection {
 		&__img {

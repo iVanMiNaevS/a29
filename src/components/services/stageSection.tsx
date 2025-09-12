@@ -17,7 +17,7 @@ export const StageSection = ({ data }: Props) => {
 			const rect = imgRef.getBoundingClientRect();
 
 			let progress = Math.min(
-				Math.max((windowHeight * 0.8 - rect.bottom) / (windowHeight * 0.6), 0),
+				Math.max((windowHeight * 1.2 - rect.bottom) / (windowHeight * 0.2), 0),
 				1
 			);
 

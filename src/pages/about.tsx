@@ -16,12 +16,14 @@ type props = {
 
 const About = ({ data }: props) => {
 	const hoverProps = useCursorHover(20);
-	console.log(data.TeamSection.Team);
 	return (
 		<>
 			<Head>
-				<title>{data.Seo.Title}</title>
-				<meta name="description" content={data.Seo.Description} />
+				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<meta
+					name="description"
+					content={data.Seo ? data.Seo.Description : "Описание"}
+				/>
 			</Head>
 			<div className="container">
 				<HeroSection data={data} />
@@ -30,16 +32,18 @@ const About = ({ data }: props) => {
 					<h2 className="sectionTitle">Вакансии</h2>
 					<div className={styles.vacancySec__wrapp}>
 						<div className={styles.vacancySec__text}>
-							{data.VacancySection.Vacancies.map((vacancy) => {
-								return (
-									<h3
-										key={vacancy.id}
-										className={styles.vacancySec__item + " itemTitle"}
-									>
-										{vacancy.Value}
-									</h3>
-								);
-							})}
+							{data.VacancySection
+								? data.VacancySection.Vacancies.map((vacancy) => {
+										return (
+											<h3
+												key={vacancy.id}
+												className={styles.vacancySec__item + " itemTitle"}
+											>
+												{vacancy.Value}
+											</h3>
+										);
+								  })
+								: "Вакансий нет"}
 							<div
 								{...hoverProps}
 								className={styles.vacancySec__emailContainer}

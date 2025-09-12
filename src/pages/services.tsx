@@ -18,45 +18,56 @@ const Services = ({ data }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo.Title}</title>
-				<meta name="description" content={data.Seo.Description} />
+				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<meta
+					name="description"
+					content={data.Seo ? data.Seo.Description : "Описание"}
+				/>
 			</Head>
 			<div className={styles.servicePage + " container"}>
 				<section className={styles.servicesSec}>
 					<div className={styles.servicesSec__header}>
 						<h1 className="sectionTitle">услуги</h1>
 						<div className={styles.servicesSec__titleWrapp + " sectionContent"}>
-							<p className="h1">{data.ServicesSection.Title}</p>
+							<p className="h1">
+								{data.ServicesSection ? data.ServicesSection.Title : "Услуги"}
+							</p>
 							<p className={styles.servicesSec__desc + " itemTitle"}>
-								{data.ServicesSection.Description}
+								{data.ServicesSection
+									? data.ServicesSection.Description
+									: "Описание"}
 							</p>
 						</div>
 					</div>
 					<div className={styles.servicesSec__services}>
-						{data.ServicesSection.Services.map((service) => {
-							return (
-								<div
-									key={service.id}
-									className={styles.servicesSec__serviceWrapp}
-								>
-									<h2 className="h3">{service.Title}</h2>
-									<div className="sectionContent">
-										{service.Accordions.map((accordion, index) => {
-											return (
-												<DropDownInfo
-													paddingTop={index !== 0}
-													key={accordion.id}
-													notBorder={index === service.Accordions.length - 1}
-													title={accordion.Title}
-												>
-													<pre>{accordion.Description}</pre>
-												</DropDownInfo>
-											);
-										})}
-									</div>
-								</div>
-							);
-						})}
+						{data.ServicesSection && data
+							? data.ServicesSection.Services.map((service) => {
+									return (
+										<div
+											key={service.id}
+											className={styles.servicesSec__serviceWrapp}
+										>
+											<h2 className="h3">{service.Title}</h2>
+											<div className="sectionContent">
+												{service.Accordions.map((accordion, index) => {
+													return (
+														<DropDownInfo
+															paddingTop={index !== 0}
+															key={accordion.id}
+															notBorder={
+																index === service.Accordions.length - 1
+															}
+															title={accordion.Title}
+														>
+															<pre>{accordion.Description}</pre>
+														</DropDownInfo>
+													);
+												})}
+											</div>
+										</div>
+									);
+							  })
+							: "список услуг"}
 					</div>
 				</section>
 			</div>
@@ -67,24 +78,28 @@ const Services = ({ data }: props) => {
 					<div className="container">
 						<div className={styles.faqSec__header}>
 							<h2 className="sectionTitle">вопросы</h2>
-							<p className="h2 sectionContent">{data.FaqSection.Title}</p>
+							<p className="h2 sectionContent">
+								{data.FaqSection ? data.FaqSection.Title : "Вопросы"}
+							</p>
 						</div>
 						<div className={styles.faqSec__accordionsWrapp}>
 							<div className={styles.faqSec__accordions}>
-								{data.FaqSection.Accordions.map((quest, index) => {
-									return (
-										<DropDownInfo
-											key={quest.id}
-											paddingTop
-											notBorder={
-												index === data.FaqSection.Accordions.length - 1
-											}
-											title={quest.Title}
-										>
-											<pre>{quest.Description}</pre>
-										</DropDownInfo>
-									);
-								})}
+								{data.FaqSection
+									? data.FaqSection.Accordions.map((quest, index) => {
+											return (
+												<DropDownInfo
+													key={quest.id}
+													paddingTop
+													notBorder={
+														index === data.FaqSection.Accordions.length - 1
+													}
+													title={quest.Title}
+												>
+													<pre>{quest.Description}</pre>
+												</DropDownInfo>
+											);
+									  })
+									: "список вопросов"}
 							</div>
 						</div>
 					</div>

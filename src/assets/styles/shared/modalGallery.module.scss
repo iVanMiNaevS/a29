@@ -1,0 +1,125 @@
+.modalGallery__container {
+	transition-duration: 0.3s;
+	opacity: 0;
+	pointer-events: all;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	padding: 0 20px;
+	height: 100vh;
+	background: rgba(37, 35, 36, 0.8);
+	z-index: -10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.modalGallery__container.open {
+	opacity: 1;
+	z-index: 990;
+}
+.modalGallery {
+	color: var(--two-black);
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	&__closeBtn {
+		cursor: pointer;
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		background: transparent;
+		outline: none;
+		border: none;
+		path {
+			fill: var(--snow-white);
+		}
+	}
+	&__swiper {
+		display: flex;
+		max-width: 600px;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			max-height: calc(100vh - 50px);
+		}
+	}
+	&__row {
+		cursor: pointer;
+		background: transparent;
+		outline: none;
+		border: none;
+		z-index: 1;
+		top: 50%;
+		position: absolute;
+		path {
+			fill: var(--snow-white);
+		}
+	}
+	&__rowRight {
+		right: -45px;
+		padding-left: 45px;
+	}
+	&__rowLeft {
+		transform: rotate(-180deg);
+		left: -45px;
+		padding-left: 45px;
+	}
+}
+
+@media (max-width: 770px) {
+	.modalGallery {
+		&__closeBtn {
+			cursor: pointer;
+			position: fixed;
+			z-index: 3;
+			top: 20px;
+			right: 20px;
+			background: transparent;
+			outline: none;
+			border: none;
+			path {
+				fill: var(--snow-white);
+			}
+		}
+		&__container {
+			padding: 0px 10px;
+		}
+		&__swiper {
+			max-width: 100%;
+		}
+		&__slide {
+			max-width: 100% !important;
+			img {
+				width: 100%;
+			}
+		}
+		&__row {
+			cursor: pointer;
+			background: rgba(0, 0, 0, 0.15);
+			outline: none;
+			border: none;
+			z-index: 1;
+			top: 50%;
+			position: absolute;
+			padding: 10px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			path {
+				width: 12px;
+				height: 14px;
+				fill: var(--snow-white);
+			}
+		}
+		&__rowRight {
+			right: 0px;
+		}
+		&__rowLeft {
+			transform: rotate(-180deg);
+			left: 0px;
+		}
+	}
+}

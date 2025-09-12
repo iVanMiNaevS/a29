@@ -2,7 +2,7 @@ import { getInfoPageService } from "@/utils/api/getInfoPageService";
 import { IProject } from "@/utils/api/types/project.interface";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { useState } from "react";
 import styles from "@/assets/styles/oneProject.module.scss";
 import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import Image from "next/image";
@@ -10,14 +10,14 @@ type props = {
 	project: IProject;
 };
 
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { useStore } from "@/store/useStore";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";
+import { ModalGallery } from "@/components/shared/modalGallery";
 
 export const OneProject = ({ project }: props) => {
 	const hoverProps = useCursorHover(20);
+	const [isOpenModal, setIsOpenModal] = useState(false);
+	const [initialSlide, setInitialSlide] = useState(0);
 	return (
 		<>
 			<Head>
@@ -73,6 +73,12 @@ export const OneProject = ({ project }: props) => {
 								positionInCycle < 4 ? styles.item25 : styles.item33;
 							return (
 								<Image
+									key={image.id}
+									onClick={() => {
+										setInitialSlide(index);
+										setIsOpenModal(true);
+										document.body.classList.add("notScroll");
+									}}
 									{...hoverProps}
 									className={`${styles.galleryItem} ${widthClass}`}
 									src={process.env.NEXT_PUBLIC_URL + image.url}
@@ -85,6 +91,15 @@ export const OneProject = ({ project }: props) => {
 							);
 						})}
 					</div>
+					<ModalGallery
+						initialSlide={initialSlide}
+						isOpen={isOpenModal}
+						onClose={() => {
+							setIsOpenModal(false);
+							document.body.classList.remove("notScroll");
+						}}
+						imgs={project.Gallery}
+					/>
 				</section>
 				<HaveAQuestSection />
 			</div>

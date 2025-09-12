@@ -21,8 +21,11 @@ export const Contact = ({ data, contactData }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo.Title}</title>
-				<meta name="description" content={data.Seo.Description} />
+				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<meta
+					name="description"
+					content={data.Seo ? data.Seo.Description : "Описание"}
+				/>
 			</Head>
 			<div className="container">
 				<div className={styles.contactWrapp}>

@@ -153,6 +153,8 @@
 				aspect-ratio: 280 / 188;
 				height: auto;
 				object-fit: cover;
+				transition: 0.1s linear;
+				will-change: width;
 			}
 		}
 		&Content {
@@ -187,6 +189,24 @@
 		margin-left: auto;
 		display: flex;
 		flex-direction: column;
+	}
+}
+
+@media (max-width: 1600px) {
+	.notDoingSec {
+		&__accordions {
+			width: 67.076%;
+		}
+	}
+	.stageSec {
+		&__stage {
+			&Content {
+				width: 67.076%;
+			}
+			&ImgWrapp {
+				width: 29%;
+			}
+		}
 	}
 }
 

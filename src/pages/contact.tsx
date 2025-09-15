@@ -1,7 +1,7 @@
 import { ContactSection } from "@/components/home/contactSection";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IContactData } from "@/utils/api/types/contactInfo.interface";
-import { IContactPageData } from "@/utils/api/types/screenTypes/contactScreen.interface";
+import { IContactData } from "@/utils/api/types/IContactInfo";
+import { IContactPageData } from "@/utils/api/types/screenTypes/IContactScreen";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";

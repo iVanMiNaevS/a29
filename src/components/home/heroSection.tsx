@@ -1,4 +1,4 @@
-import { IVideo } from "@/utils/api/types/screenTypes/mainScreen.interface";
+import { IVideo } from "@/utils/api/types/screenTypes/IMainScreen";
 import React, { useState } from "react";
 import styles from "@/assets/styles/Home.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";

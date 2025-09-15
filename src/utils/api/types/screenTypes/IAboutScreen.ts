@@ -1,5 +1,5 @@
-import { IImageFormat } from "../image.interface";
-import { ISeo } from "../seo.interface";
+import { IImageFormat } from "../IImage";
+import { ISeo } from "../ISeo";
 
 export interface IAboutPageData {
 	id: number;

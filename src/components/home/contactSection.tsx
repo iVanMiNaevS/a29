@@ -1,14 +1,14 @@
 import React from "react";
 import styles from "@/assets/styles/Home.module.scss";
 import Image from "next/image";
-import { IContactData } from "@/utils/api/types/contactInfo.interface";
+import { IContactData } from "@/utils/api/types/IContactInfo";
 import Link from "next/link";
-import tgLogo from "@/assets/icons/tg.aeb371e0.svg";
-import wpLogo from "@/assets/icons/whatsapp.e39092a8.svg";
-import prLogo from "@/assets/icons/pinterest.5c608ff4.svg";
-import vkLogo from "@/assets/icons/vk.5ab775c6.svg";
-import instLogo from "@/assets/icons/inst.02e545b2.svg";
-import dzenLogo from "@/assets/icons/dzen.0b07a2a2.svg";
+import tgLogo from "@/assets/icons/tg.svg";
+import wpLogo from "@/assets/icons/whatsapp.svg";
+import prLogo from "@/assets/icons/pinterest.svg";
+import vkLogo from "@/assets/icons/vk.svg";
+import instLogo from "@/assets/icons/inst.svg";
+import dzenLogo from "@/assets/icons/dzen.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";
 type props = {
 	contactData: IContactData;
@@ -44,7 +44,7 @@ export const ContactSection = ({ contactData }: props) => {
 							<Image src={tgLogo} width={20} height={20} alt="telegram" />
 							Telegram
 						</Link>
-						<Link href={contactData.Card.Telegram} {...hoverProps}>
+						<Link href={contactData.Card.Whatsapp} {...hoverProps}>
 							{" "}
 							<Image src={wpLogo} width={20} height={20} alt="whatsapp" />
 							WhatsApp
@@ -78,16 +78,16 @@ export const ContactSection = ({ contactData }: props) => {
 						</span>
 					</p>
 					<div className={styles.contactSection__contactInfoLinks}>
-						<Link href={contactData.Pinterest} {...hoverProps}>
+						<Link href={contactData.Pinterest} target="_blank" {...hoverProps}>
 							<Image src={prLogo} width={25} height={25} alt="pinterest" />
 						</Link>
-						<Link href={contactData.Pinterest} {...hoverProps}>
+						<Link href={contactData.Vk} target="_blank" {...hoverProps}>
 							<Image src={vkLogo} width={25} height={25} alt="vk" />
 						</Link>
-						<Link href={contactData.Pinterest} {...hoverProps}>
+						<Link href={contactData.Instagram} target="_blank" {...hoverProps}>
 							<Image src={instLogo} width={25} height={25} alt="instagram" />
 						</Link>
-						<Link href={contactData.Pinterest} {...hoverProps}>
+						<Link href={contactData.Dzen} target="_blank" {...hoverProps}>
 							<Image src={dzenLogo} width={25} height={25} alt="dzen" />
 						</Link>
 					</div>

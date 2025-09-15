@@ -156,6 +156,9 @@
 
 .contactSection {
 	padding: var(--section-padding);
+	&__tel {
+		font-size: 22px;
+	}
 	&__header {
 		display: flex;
 		gap: 70px;
@@ -297,6 +300,9 @@
 				color: var(--b6-gray);
 			}
 		}
+		&__menegerWrapp {
+			flex: 50%;
+		}
 	}
 }
 
@@ -360,6 +366,7 @@
 		}
 	}
 }
+
 @media (max-width: 500px) {
 	.contactSection {
 		&__personInfo {

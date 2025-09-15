@@ -71,8 +71,19 @@
 		background: #f1f1f1;
 		display: block;
 		padding: 10px;
+		border-radius: 5px;
 		color: var(--8e-gray);
 		transition: 0.3s;
+		&::before {
+			content: "";
+			width: 10px;
+			height: 10px;
+			transform: translate(-50%, -50%) rotate(40deg);
+			position: absolute;
+			background: #f1f1f1;
+			top: 100%;
+			left: 50%;
+		}
 	}
 	&__body {
 		padding-top: 30px;
@@ -137,24 +148,27 @@
 		}
 	}
 	&__checkBoxContainer {
+		display: flex;
+		gap: 10px;
 		input {
 			display: none;
 		}
-		label {
-			display: flex;
-			gap: 10px;
-			color: var(--8e-gray);
-			span {
-				text-decoration: underline;
-			}
-		}
-		label:before {
+		.customCheckbox {
 			width: 20px;
 			display: block;
-			content: url("../../icons/check.a86cd426.svg");
+			height: 20px;
+			cursor: pointer;
 		}
-		input:checked + label:before {
-			content: url("../../icons/check_active.8eefe3bd.svg");
+		label {
+			user-select: none;
+			color: var(--8e-gray);
+			span {
+				a {
+					color: var(--8e-gray);
+					cursor: pointer;
+				}
+				text-decoration: underline;
+			}
 		}
 	}
 }

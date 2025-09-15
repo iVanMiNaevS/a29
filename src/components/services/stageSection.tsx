@@ -1,4 +1,4 @@
-import { IStageSection } from "@/utils/api/types/screenTypes/servicesScreen.interface";
+import { IStageSection } from "@/utils/api/types/screenTypes/IServicesScreen";
 import React, { useRef } from "react";
 import styles from "@/assets/styles/services.module.scss";
 import Image from "next/image";

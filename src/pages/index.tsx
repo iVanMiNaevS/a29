@@ -3,14 +3,14 @@ import styles from "@/assets/styles/Home.module.scss";
 import { HeroSection } from "@/components/home/heroSection";
 import { GetStaticProps } from "next";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IMainPageData } from "@/utils/api/types/screenTypes/mainScreen.interface";
+import { IMainPageData } from "@/utils/api/types/screenTypes/IMainScreen";
 import { Project } from "@/components/shared/project";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import Link from "next/link";
 import { AppRouter } from "@/utils/AppRouter";
 import { ReviewsSection } from "@/components/home/reviewsSection";
 import { ContactSection } from "@/components/home/contactSection";
-import { IContactData } from "@/utils/api/types/contactInfo.interface";
+import { IContactData } from "@/utils/api/types/IContactInfo";
 
 type props = {
 	data: IMainPageData;

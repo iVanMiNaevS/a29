@@ -1,12 +1,12 @@
 import {
 	IAboutPageData,
 	ITeamMember,
-} from "@/utils/api/types/screenTypes/aboutScreen.interface";
+} from "@/utils/api/types/screenTypes/IAboutScreen";
 import React, { useState } from "react";
 import styles from "@/assets/styles/about.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import Image from "next/image";
-import { IImageFormat } from "@/utils/api/types/image.interface";
+import { IImageFormat } from "@/utils/api/types/IImage";
 import { TeamSwiper } from "./teamSwiper";
 type props = {
 	data: IAboutPageData;

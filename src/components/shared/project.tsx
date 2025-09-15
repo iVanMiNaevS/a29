@@ -1,4 +1,4 @@
-import { IProject } from "@/utils/api/types/project.interface";
+import { IProject } from "@/utils/api/types/IProject";
 import React from "react";
 import styles from "@/assets/styles/shared/project.module.scss";
 import Image from "next/image";

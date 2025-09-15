@@ -1,6 +1,6 @@
-import { IProject } from "../project.interface";
-import { IReview } from "../review.interface";
-import { ISeo } from "../seo.interface";
+import { IProject } from "../IProject";
+import { IReview } from "../IReview";
+import { ISeo } from "../ISeo";
 
 interface IDocumentReference {
 	id: number;

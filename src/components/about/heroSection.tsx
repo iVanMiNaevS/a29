@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useRef } from "react";
 import styles from "@/assets/styles/about.module.scss";
-import { IAboutPageData } from "@/utils/api/types/screenTypes/aboutScreen.interface";
+import { IAboutPageData } from "@/utils/api/types/screenTypes/IAboutScreen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import { Autoplay, Pagination } from "swiper/modules";

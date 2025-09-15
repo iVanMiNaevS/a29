@@ -25,3 +25,9 @@
 	justify-content: center;
 	color: var(--snow-white);
 }
+
+@media (max-width: 770px) {
+	.container {
+		display: none;
+	}
+}

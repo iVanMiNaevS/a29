@@ -1,4 +1,4 @@
-import { IProject } from "./project.interface";
+import { IProject } from "./IProject";
 
 export interface IReview {
 	id: number;

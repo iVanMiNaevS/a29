@@ -1,5 +1,5 @@
-import { IProject } from "../project.interface";
-import { ISeo } from "../seo.interface";
+import { IProject } from "../IProject";
+import { ISeo } from "../ISeo";
 
 export interface IProjectPageData {
 	id: number;

@@ -1,11 +1,15 @@
 import React, { useRef, useState } from "react";
 import styles from "@/assets/styles/shared/modal.module.scss";
 import Image from "next/image";
-import closeIcon from "@/assets/icons/close.d31d0f2a.svg";
+import closeIcon from "@/assets/icons/close.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";
-import tel from "@/assets/icons/phone.5f08591e.svg";
-import email from "@/assets/icons/email.387c482c.svg";
-import copy from "@/assets/icons/copy.a16bb489.svg";
+import tel from "@/assets/icons/phone.svg";
+import email from "@/assets/icons/email.svg";
+import copy from "@/assets/icons/copy.svg";
+
+import activeCheckbox from "@/assets/icons/check_active.svg";
+import checkbox from "@/assets/icons/check.svg";
+
 type ModalProps = {
 	isOpen: boolean;
 	onClose: () => void;
@@ -16,6 +20,7 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 	const hoverProps = useCursorHover(20);
 	const [openCopy, setOpenCopy] = useState(false);
 	const [phone, setPhone] = useState("+");
+	const emailText = "a29studio@yandex.ru";
 	const [isChecked, setIsChecked] = useState(false);
 	const handleOutsideClick = (e: React.MouseEvent) => {
 		if (closeOnOutsideClick && e.target === e.currentTarget) {
@@ -29,10 +34,8 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 			return phone;
 		}
 
-		// Извлекаем цифры после +7
 		const digits = numbers.substring(2);
 
-		// Форматируем номер
 		let formatted = "+7 (";
 
 		if (digits.length > 0) {
@@ -50,7 +53,16 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 
 		return formatted;
 	};
+	const validatePhone = (phoneNumber: string) => {
+		const digitsOnly = phoneNumber.replace(/\D/g, "");
 
+		if (digitsOnly.length !== 11) return false;
+
+		if (!digitsOnly.startsWith("7") && !digitsOnly.startsWith("8"))
+			return false;
+
+		return true;
+	};
 	const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		const input = e.target.value;
 
@@ -72,8 +84,8 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 				</button>
 				<div className={styles.modal__header}>
 					<p className={styles.modal__headerTitle}>
-						Узнать подробности разработки проекта или назначить встречу для
-						личного знакомства
+						Узнать подробности разработки вашего индивидуального проекта или
+						назначить встречу для личного знакомства
 					</p>
 					<div className={styles.modal__contactDataWrapp}>
 						<a
@@ -89,15 +101,13 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 							<Image src={email} width={25} height={25} alt="почта" />
 							<p
 								onClick={() => {
-									navigator.clipboard
-										.writeText("pa29studio@yandex.ru")
-										.then(() => {
-											setOpenCopy(true);
+									navigator.clipboard.writeText(emailText).then(() => {
+										setOpenCopy(true);
 
-											setTimeout(() => {
-												setOpenCopy(false);
-											}, 1500);
-										});
+										setTimeout(() => {
+											setOpenCopy(false);
+										}, 1500);
+									});
 								}}
 								className={styles.modal__email}
 							>
@@ -107,7 +117,7 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 								>
 									Скопировано
 								</span>
-								pa29studio@yandex.ru{" "}
+								{emailText}{" "}
 								<Image src={copy} width={13} height={13} alt="скопировать" />
 							</p>
 						</div>
@@ -118,7 +128,12 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 						Или оставьте номер телефона/WhatsApp/Telegram и мы свяжемся с вами в
 						ближайшее время
 					</p>
-					<form>
+					<form
+						onSubmit={(e) => {
+							e.preventDefault();
+							if (!validatePhone(phone)) alert("укажите верный номер телефона");
+						}}
+					>
 						<div className={styles.modal__inputWrapp}>
 							<input
 								value={phone}
@@ -134,20 +149,50 @@ export const Modal = ({ isOpen, onClose, closeOnOutsideClick }: ModalProps) => {
 							/>
 							<Image src={tel} alt="Phone" width={20} height={20} />
 						</div>
-						<textarea name="comment" placeholder="Задать вопрос"></textarea>
+						<textarea
+							style={{ resize: "none" }}
+							name="comment"
+							placeholder="Задать вопрос"
+							required
+						></textarea>
 						<div className={styles.modal__checkBoxContainer}>
-							<input
-								type="checkbox"
-								id="access"
-								checked={isChecked}
-								onChange={() => {
-									setIsChecked((prev) => !prev);
+							<input type="checkbox" id="access" />
+							<Image
+								width={20}
+								height={20}
+								className={styles.customCheckbox}
+								onClick={() => setIsChecked((prev) => !prev)}
+								tabIndex={0}
+								onKeyDown={(e) => {
+									if (e.key === "Enter" || e.key === " ") {
+										e.preventDefault();
+										setIsChecked((prev) => !prev);
+									}
 								}}
+								{...hoverProps}
+								alt={isChecked ? "согласен" : "не согласен"}
+								src={isChecked ? activeCheckbox.src : checkbox.src}
 							/>
 							<label htmlFor={"access"}>
-								<div className="">
-									Даю <span>согласие</span> на обработку персональных данных в
-									соответсвии с <span>политикой конфиденциальности</span>
+								<div className={styles.modal__checkBoxContainerText}>
+									Даю{" "}
+									<span {...hoverProps}>
+										<a
+											download
+											href={"/documents/polzovatelskoe-soglashenie.docx"}
+										>
+											согласие
+										</a>
+									</span>{" "}
+									на обработку персональных данных в соответсвии с{" "}
+									<span {...hoverProps}>
+										<a
+											download
+											href={"/documents/politika-konfidenczialnosti.docx"}
+										>
+											политикой конфиденциальности
+										</a>
+									</span>
 								</div>
 							</label>
 						</div>

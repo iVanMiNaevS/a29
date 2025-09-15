@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { IReview } from "@/utils/api/types/review.interface";
+import { IReview } from "@/utils/api/types/IReview";
 import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper as SwiperType } from "swiper";
@@ -11,7 +11,7 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "@/assets/styles/Home.module.scss";
 
-import arrow from "@/assets/icons/review_arrow.1721e813.svg";
+import arrow from "@/assets/icons/review_arrow.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";
 
 type props = {

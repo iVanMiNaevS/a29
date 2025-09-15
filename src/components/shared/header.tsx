@@ -6,15 +6,15 @@ import Link from "next/link";
 import logo from "@/assets/images/logo_a29.jpg";
 import { useRouter } from "next/router";
 import { useCursorHover } from "@/hooks/useCursorHover";
-import prLogo from "@/assets/icons/pinterest.5c608ff4.svg";
-import vkLogo from "@/assets/icons/vk.5ab775c6.svg";
-import instLogo from "@/assets/icons/inst.02e545b2.svg";
-import dzenLogo from "@/assets/icons/dzen.0b07a2a2.svg";
-import whatsApp from "@/assets/icons/whatsapp.e39092a8.svg";
-import burger from "@/assets/icons/burger.ab714cf1.svg";
-import xMark from "@/assets/icons/xmark.8b9a0c8a.svg";
+import prLogo from "@/assets/icons/pinterest.svg";
+import vkLogo from "@/assets/icons/vk.svg";
+import instLogo from "@/assets/icons/inst.svg";
+import dzenLogo from "@/assets/icons/dzen.svg";
+import whatsApp from "@/assets/icons/whatsapp.svg";
+import burger from "@/assets/icons/burger.svg";
+import xMark from "@/assets/icons/xmark.svg";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IContactData } from "@/utils/api/types/contactInfo.interface";
+import { IContactData } from "@/utils/api/types/IContactInfo";
 export const Header = () => {
 	const hoverProps = useCursorHover(20);
 	const headerLinks = [
@@ -27,8 +27,6 @@ export const Header = () => {
 
 	const [contactData, setContactData] = useState<IContactData>();
 	const [isOpenMobMenu, setIsOpenMobMenu] = useState(false);
-	const mobMenuRef = useRef<HTMLDivElement>(null);
-	// const [contentHeight, setContentHeight] = useState(0);
 
 	async function getContactData() {
 		const contactDataAndMeta = await getInfoPageService<IContactData>(
@@ -41,17 +39,14 @@ export const Header = () => {
 	useEffect(() => {
 		getContactData();
 	}, []);
-	// useEffect(() => {
-	// 	if (mobMenuRef.current) {
-	// 		setContentHeight(mobMenuRef.current.scrollHeight);
-	// 	}
-	// }, []);
+
 	return (
 		<header className="header">
 			<div className={styles.header__container + " container"}>
-				<Image src={logo} width={66} height={61} alt="Логотип" />
+				<Link href={AppRouter.HOME}>
+					<Image src={logo} width={66} height={61} alt="Логотип" />
+				</Link>
 				<div
-					// ref={mobMenuRef}
 					className={styles.header__content}
 					style={{
 						maxHeight: isOpenMobMenu ? `calc(100vh - 102px)` : "0px",
@@ -86,20 +81,28 @@ export const Header = () => {
 						className={styles.tel}
 						target="blank"
 					>
-						+7 (929) 06729-29
+						+7 (929) 067-29-29
 					</a>
 					{contactData ? (
 						<div className={styles.contactSection__contactInfoLinks}>
-							<Link href={contactData.Pinterest} {...hoverProps}>
+							<Link
+								href={contactData.Pinterest}
+								target="_blank"
+								{...hoverProps}
+							>
 								<Image src={prLogo} width={25} height={25} alt="pinterest" />
 							</Link>
-							<Link href={contactData.Pinterest} {...hoverProps}>
+							<Link href={contactData.Vk} target="_blank" {...hoverProps}>
 								<Image src={vkLogo} width={25} height={25} alt="vk" />
 							</Link>
-							<Link href={contactData.Pinterest} {...hoverProps}>
+							<Link
+								href={contactData.Instagram}
+								target="_blank"
+								{...hoverProps}
+							>
 								<Image src={instLogo} width={25} height={25} alt="instagram" />
 							</Link>
-							<Link href={contactData.Pinterest} {...hoverProps}>
+							<Link href={contactData.Dzen} target="_blank" {...hoverProps}>
 								<Image src={dzenLogo} width={25} height={25} alt="dzen" />
 							</Link>
 						</div>

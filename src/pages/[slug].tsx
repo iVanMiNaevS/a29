@@ -1,5 +1,5 @@
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IProject } from "@/utils/api/types/project.interface";
+import { IProject } from "@/utils/api/types/IProject";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React, { useState } from "react";

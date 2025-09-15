@@ -1,5 +1,5 @@
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IServicesPageData } from "@/utils/api/types/screenTypes/servicesScreen.interface";
+import { IServicesPageData } from "@/utils/api/types/screenTypes/IServicesScreen";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React, { useRef } from "react";

@@ -1,5 +1,5 @@
 import { useCursorHover } from "@/hooks/useCursorHover";
-import { IImageFormat } from "@/utils/api/types/image.interface";
+import { IImageFormat } from "@/utils/api/types/IImage";
 import React, { useRef } from "react";
 import styles from "@/assets/styles/shared/modalGallery.module.scss";
 import Image from "next/image";

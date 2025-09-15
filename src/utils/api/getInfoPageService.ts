@@ -1,5 +1,5 @@
-import { IMeta } from "./types/meta.interface";
-import { IMainPageData } from "./types/screenTypes/mainScreen.interface";
+import { IMeta } from "./types/IMeta";
+import { IMainPageData } from "./types/screenTypes/IMainScreen";
 
 export const getInfoPageService = async <T = IMainPageData>(
 	endPoint:

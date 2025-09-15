@@ -1,4 +1,4 @@
-import { IImageFormat } from "./image.interface";
+import { IImageFormat } from "./IImage";
 
 export interface IContactCard {
 	id: number;

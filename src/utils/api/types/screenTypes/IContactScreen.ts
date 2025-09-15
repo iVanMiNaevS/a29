@@ -1,4 +1,4 @@
-import { ISeo } from "../seo.interface";
+import { ISeo } from "../ISeo";
 
 export interface IContactPageData {
 	id: number;

@@ -3,9 +3,9 @@ import styles from "@/assets/styles/projects.module.scss";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
-import { IProjectPageData } from "@/utils/api/types/screenTypes/projectScreen.interface";
+import { IProjectPageData } from "@/utils/api/types/screenTypes/IProjectScreen";
 import { ProjectsSection } from "@/components/projects/projectsSection";
-import { IProject } from "@/utils/api/types/project.interface";
+import { IProject } from "@/utils/api/types/IProject";
 import { useCursorHover } from "@/hooks/useCursorHover";
 
 type props = {

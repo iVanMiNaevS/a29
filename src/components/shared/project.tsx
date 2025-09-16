@@ -40,10 +40,10 @@ export const Project = ({ project }: props) => {
 							placeholder="blur"
 							blurDataURL={image.blurHash}
 							key={image.id}
-							src={process.env.NEXT_PUBLIC_URL + image.url}
+							src={process.env.NEXT_PUBLIC_URL + image.formats.medium.url}
 							alt={image.alternativeText}
-							width={image.width}
-							height={image.height}
+							width={image.formats.medium.width}
+							height={image.formats.medium.height}
 						/>
 					);
 				})}

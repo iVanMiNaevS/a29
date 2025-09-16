@@ -133,19 +133,30 @@ export const ReviewsSection = ({ reviews }: props) => {
 						</div>
 					</div>
 				</div>
-				{activeReview?.Project?.Poster ? (
-					<Image
-						className={styles.reviewsSection__img}
-						src={process.env.NEXT_PUBLIC_URL + activeReview.Project.Poster.url}
-						width={activeReview.Project.Poster.width}
-						height={activeReview.Project.Poster.height}
-						alt={activeReview.Project.Poster.alternativeText}
-						placeholder="blur"
-						blurDataURL={activeReview.Project.Poster.blurHash}
-					/>
-				) : (
-					""
-				)}
+				<div className={styles.reviewsSection__imgWrapp}>
+					{reviews.map((review) => {
+						return (
+							<Image
+								className={
+									activeReview?.id === review.id
+										? styles.reviewsSection__img
+										: styles.reviewsSection__img +
+										  " " +
+										  styles.reviewsSection__hiddenImg
+								}
+								src={
+									process.env.NEXT_PUBLIC_URL +
+									review.Project.Poster.formats.medium.url
+								}
+								width={review.Project.Poster.formats.medium.width}
+								height={review.Project.Poster.formats.medium.height}
+								alt={review.Project.Poster.alternativeText}
+								placeholder="blur"
+								blurDataURL={review.Project.Poster.blurHash}
+							/>
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

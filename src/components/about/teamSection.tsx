@@ -101,6 +101,7 @@ export const TeamSection = ({ data }: props) => {
 					{mainMember && (
 						<>
 							<Image
+								key={mainMember.id}
 								src={process.env.NEXT_PUBLIC_URL + mainMember.Image.url}
 								alt={mainMember.Image.alternativeText}
 								width={mainMember.Image.width}
@@ -117,7 +118,11 @@ export const TeamSection = ({ data }: props) => {
 					return (
 						<div
 							key={member.id}
-							className={styles.teamSec__card}
+							className={
+								mainMember.id !== member.id
+									? styles.teamSec__card
+									: styles.teamSec__card + " " + styles.teamSec__cardColor
+							}
 							style={{ gridArea: area }}
 							onClick={() => {
 								setMainMember(member);

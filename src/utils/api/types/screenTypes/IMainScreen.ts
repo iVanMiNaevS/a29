@@ -2,11 +2,6 @@ import { IProject } from "../IProject";
 import { IReview } from "../IReview";
 import { ISeo } from "../ISeo";
 
-interface IDocumentReference {
-	id: number;
-	documentId: string;
-}
-
 interface IMediaFormat {
 	id: number;
 	documentId: string;

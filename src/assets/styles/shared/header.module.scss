@@ -1,6 +1,9 @@
 header {
 	.header {
 		position: relative;
+		&__logoLink {
+			height: 60px;
+		}
 		&__container {
 			z-index: 3;
 			display: flex;
@@ -16,7 +19,7 @@ header {
 			display: flex;
 			justify-content: space-between;
 			width: 100%;
-			max-width: 875px;
+			max-width: 865px;
 			gap: 40px;
 			nav {
 				display: flex;
@@ -39,7 +42,7 @@ header {
 			span {
 				transition: 0.3s;
 				display: block;
-				margin-right: 6.5px;
+				margin-right: 10px;
 				width: 6px;
 				height: 6px;
 				border-radius: 10px;
@@ -67,6 +70,7 @@ header {
 				background: transparent;
 				display: flex;
 				align-items: center;
+				cursor: pointer;
 			}
 		}
 	}
@@ -179,6 +183,9 @@ header {
 @media (max-width: 770px) {
 	header {
 		.header {
+			&__mobileWrapp {
+				gap: 10px;
+			}
 			&__container {
 				padding-top: 10px;
 				padding-bottom: 10px;

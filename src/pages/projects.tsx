@@ -156,9 +156,8 @@ const Projects = ({ data, dataProjects }: props) => {
 				<ProjectsSection
 					projects={projects}
 					lastProjectRef={lastProjectElementRef}
+					isLoading={isLoading}
 				/>
-
-				{isLoading && <div className={styles.loading}>Загрузка...</div>}
 			</div>
 		</>
 	);

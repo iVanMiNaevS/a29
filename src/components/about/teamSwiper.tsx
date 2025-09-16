@@ -18,6 +18,14 @@ export const TeamSwiper = ({ data }: props) => {
 			onSwiper={(swiper) => {}}
 			navigation={false}
 			spaceBetween={30}
+			breakpoints={{
+				0: {
+					spaceBetween: 20,
+				},
+				768: {
+					spaceBetween: 30,
+				},
+			}}
 			slidesPerView={"auto"}
 			className={styles.teamSec__swiper}
 		>

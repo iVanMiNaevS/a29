@@ -61,7 +61,7 @@
 		width: 100%;
 	}
 	&__projects {
-		padding-bottom: 70px;
+		padding-bottom: 35px;
 	}
 	&__button {
 		text-align: center;
@@ -82,12 +82,23 @@
 		text-align: center;
 		padding-bottom: 70px;
 	}
-	&__img {
-		object-fit: cover;
-
-		user-select: none;
+	&__imgWrapp {
+		position: relative;
 		width: calc(33.33% - 47.55px);
 		height: 700px;
+	}
+	&__img {
+		object-fit: cover;
+		user-select: none;
+		width: 100%;
+		height: 100%;
+		transition: 0.3s;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+	&__hiddenImg {
+		opacity: 0;
 	}
 	&__reviewsWrapp {
 		display: flex;
@@ -244,16 +255,20 @@
 }
 @media (max-width: 1600px) {
 	.reviewsSection {
-		&__img {
+		&__imgWrapp {
 			height: 525px;
+		}
+		&__img {
 		}
 	}
 }
 @media (max-width: 1440px) {
 	.reviewsSection {
+		&__imgWrapp {
+			min-height: 600px;
+		}
 		&__img {
 			height: 100%;
-			min-height: 600px;
 		}
 	}
 }
@@ -282,11 +297,13 @@
 			width: calc(50% - 47.55px);
 			justify-content: space-between;
 		}
-		&__img {
-			user-select: none;
+		&__imgWrapp {
 			width: calc(50% - 47.55px);
-			height: 100%;
 			min-height: 610px;
+		}
+		&__img {
+			height: 100%;
+			user-select: none;
 		}
 	}
 	.contactSection {
@@ -312,11 +329,12 @@
 	}
 	.projectsSection {
 		&__projects {
-			padding-bottom: 30px;
+			padding-bottom: 5px;
 		}
 		&__header {
 			gap: 30px;
 			flex-direction: column;
+			padding-bottom: 30px;
 		}
 		&__button {
 			padding: 40px 65px;
@@ -332,22 +350,37 @@
 			gap: 30px;
 			width: 100%;
 		}
+		&__navigation {
+			svg {
+				width: 20px;
+				height: 20px;
+			}
+		}
 		&__swiperWrapp {
 			width: 100%;
 			order: 2;
 			gap: 30px;
+			h3 {
+				padding-bottom: 20px;
+			}
 		}
 		&__info {
 			padding-left: 20px;
+			gap: 20px;
 			&Footer {
 				flex-wrap: wrap;
 				gap: 10px;
 			}
 		}
-		&__img {
+		&__imgWrapp {
 			width: 100%;
-			min-height: auto;
+			aspect-ratio: 335/418;
+			height: auto;
+			min-height: 418px;
+			max-height: 600px;
 			order: 1;
+		}
+		&__img {
 		}
 	}
 	.contactSection {
@@ -356,13 +389,15 @@
 		}
 		&__content {
 			flex-direction: column;
+			gap: 70px;
 		}
 		&__contactInfoWrapp {
-			gap: 30px;
+			gap: 40px;
 			width: 100%;
 		}
+
 		&__menegerWrapp {
-			padding-left: 20px;
+			padding: 20px;
 		}
 	}
 }
@@ -371,7 +406,7 @@
 	.contactSection {
 		&__personInfo {
 			flex-direction: column;
-			padding-bottom: 30px;
+			padding-bottom: 40px;
 			img {
 				width: 120px;
 				height: 120px;

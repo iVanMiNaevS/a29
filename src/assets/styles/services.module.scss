@@ -267,6 +267,7 @@
 			padding-bottom: 30px;
 		}
 		&__serviceWrapp {
+			padding: 30px 0px;
 			flex-direction: column;
 			h2 {
 				padding-bottom: 30px;
@@ -281,10 +282,19 @@
 			margin-left: 0px;
 			width: 100%;
 		}
+		.dropDown {
+			padding-bottom: 30px;
+		}
+		.dropDown.paddingTop {
+			padding-top: 30px;
+		}
 	}
 	.stageSec {
 		&__header {
 			padding-bottom: 30px;
+		}
+		&__stageContent {
+			gap: 20px;
 		}
 	}
 	.faqSec {

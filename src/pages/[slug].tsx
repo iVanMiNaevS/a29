@@ -6,6 +6,8 @@ import React, { useState } from "react";
 import styles from "@/assets/styles/oneProject.module.scss";
 import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import Image from "next/image";
+import notImage from "@/assets/images/notImage.jpg";
+
 type props = {
 	project: IProject;
 };
@@ -21,7 +23,11 @@ export const OneProject = ({ project }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{project.FormatTitle.toString()}- А29 - Дизайн интерьера</title>
+				<title>
+					{`${
+						project?.FormatTitle ? project.FormatTitle.toString() : ""
+					} - А29 - Дизайн интерьера`}
+				</title>
 			</Head>
 			<div className="container">
 				<section className={styles.heroSection}>
@@ -49,19 +55,30 @@ export const OneProject = ({ project }: props) => {
 				<section className={styles.aboutSection}>
 					<h2 className="h3">О проекте</h2>
 					<div className={styles.aboutSection__accordions + " sectionContent"}>
-						<DropDownInfo title="Задачи проекта">
+						<DropDownInfo notBorder={!project.Layouts} title="Задачи проекта">
 							<pre>{project.Description}</pre>
 						</DropDownInfo>
-						<DropDownInfo notBorder title="Планировочное решение">
-							<Image
-								src={process.env.NEXT_PUBLIC_URL + project.Layouts[0].url}
-								placeholder="blur"
-								blurDataURL={project.Layouts[0].blurHash}
-								alt={project.Layouts[0].alternativeText}
-								width={project.Layouts[0].width}
-								height={project.Layouts[0].height}
-							/>
-						</DropDownInfo>
+						{project.Layouts && (
+							<DropDownInfo notBorder title="Планировочное решение">
+								{project.Layouts ? (
+									<Image
+										src={process.env.NEXT_PUBLIC_URL + project.Layouts[0].url}
+										placeholder="blur"
+										blurDataURL={project.Layouts[0].blurHash}
+										alt={project.Layouts[0].alternativeText}
+										width={project.Layouts[0].width}
+										height={project.Layouts[0].height}
+									/>
+								) : (
+									<Image
+										src={notImage}
+										width={720}
+										height={480}
+										alt="нет фото планировки"
+									/>
+								)}
+							</DropDownInfo>
+						)}
 					</div>
 				</section>
 				<section className={styles.gallerySec}>
@@ -81,10 +98,10 @@ export const OneProject = ({ project }: props) => {
 									}}
 									{...hoverProps}
 									className={`${styles.galleryItem} ${widthClass}`}
-									src={process.env.NEXT_PUBLIC_URL + image.url}
+									src={process.env.NEXT_PUBLIC_URL + image.formats.medium.url}
 									alt={image.alternativeText}
-									width={image.width}
-									height={image.height}
+									width={image.formats.medium.width}
+									height={image.formats.medium.height}
 									placeholder="blur"
 									blurDataURL={image.blurHash}
 								/>

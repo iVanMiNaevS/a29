@@ -6,7 +6,7 @@ export interface IImageFormat {
 	caption: string;
 	width: number;
 	height: number;
-	formats: string;
+	formats: IFormats;
 	hash: string;
 	ext: string;
 	mime: string;
@@ -21,4 +21,15 @@ export interface IImageFormat {
 	publishedAt: string;
 	locale: string;
 	blurHash: string;
+}
+
+export interface IFormats {
+	large: IFormat;
+	medium: IFormat;
+}
+
+export interface IFormat {
+	url: string;
+	width: number;
+	height: number;
 }

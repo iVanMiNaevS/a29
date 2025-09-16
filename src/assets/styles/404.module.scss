@@ -1,0 +1,17 @@
+.container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: calc(100vh - 300px);
+	width: 100%;
+	h1 {
+		font-size: 54px;
+		padding-bottom: 20px;
+	}
+	.link {
+		background: var(--two-black);
+		padding: 20px 15px;
+		color: var(--snow-white);
+	}
+}

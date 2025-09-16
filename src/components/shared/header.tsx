@@ -43,8 +43,8 @@ export const Header = () => {
 	return (
 		<header className="header">
 			<div className={styles.header__container + " container"}>
-				<Link href={AppRouter.HOME}>
-					<Image src={logo} width={66} height={61} alt="Логотип" />
+				<Link href={AppRouter.HOME} className={styles.header__logoLink}>
+					<Image src={logo} width={66} height={60} alt="Логотип" />
 				</Link>
 				<div
 					className={styles.header__content}

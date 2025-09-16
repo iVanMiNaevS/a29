@@ -7,15 +7,19 @@ import { HaveAQuestSection } from "../shared/haveAQuestSection";
 type props = {
 	projects: IProject[];
 	lastProjectRef?: React.RefObject<HTMLDivElement | null>;
+	isLoading: boolean;
 };
 
-export const ProjectsSection = ({ projects, lastProjectRef }: props) => {
+export const ProjectsSection = ({
+	projects,
+	lastProjectRef,
+	isLoading,
+}: props) => {
 	return (
 		<>
 			<section className={styles.projectsGrid}>
 				{projects.length > 0 ? (
 					projects.map((project, index) => {
-						// Если это последний проект, добавляем ref для отслеживания
 						const isLastProject = index === projects.length - 1;
 
 						return (
@@ -30,6 +34,11 @@ export const ProjectsSection = ({ projects, lastProjectRef }: props) => {
 					})
 				) : (
 					<div>Проектов пока что нет</div>
+				)}
+				{isLoading && (
+					<div className={styles.loaderWrapper}>
+						<div className={styles.loader}></div>
+					</div>
 				)}
 			</section>
 			<HaveAQuestSection />

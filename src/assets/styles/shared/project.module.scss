@@ -20,6 +20,7 @@
 				color: var(--8e-gray);
 				width: 85px;
 				text-align: start;
+				margin-right: 10px;
 			}
 		}
 	}
@@ -30,6 +31,8 @@
 		img {
 			width: calc(33.33% - 13px);
 			height: auto;
+			aspect-ratio: 4/5;
+			object-fit: cover;
 		}
 	}
 }
@@ -51,6 +54,7 @@
 		gap: 40px;
 		.content {
 			width: 100%;
+			gap: 20px;
 		}
 		.images {
 			width: 100%;

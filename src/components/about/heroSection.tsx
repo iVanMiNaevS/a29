@@ -33,7 +33,7 @@ export const HeroSection = ({ data }: props) => {
 		<section className={styles.heroSection}>
 			<div className={styles.heroSection__header}>
 				<h1 className="sectionTitle">О нас</h1>
-				<p className="h1">{data.HeroSection.Title}</p>
+				<p className="h1 sectionContent">{data.HeroSection.Title}</p>
 			</div>
 			<div className={styles.heroSection__sliderSecWrapp}>
 				<Image
@@ -70,10 +70,11 @@ export const HeroSection = ({ data }: props) => {
 									<div className={styles.heroSection__personWrapp}>
 										<Image
 											src={
-												process.env.NEXT_PUBLIC_URL + principle.Author.Image.url
+												process.env.NEXT_PUBLIC_URL +
+												principle.Author.Image.formats.medium.url
 											}
-											width={principle.Author.Image.width}
-											height={principle.Author.Image.height}
+											width={principle.Author.Image.formats.medium.width}
+											height={principle.Author.Image.formats.medium.height}
 											alt={principle.Author.Image.alternativeText}
 										/>
 										<div className={styles.heroSection__personInfo}>

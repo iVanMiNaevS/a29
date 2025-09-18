@@ -41,16 +41,16 @@ export const Contact = ({ data, contactData }: props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataAndMeta = await getInfoPageService<IContactPageData>(
+	const dataPage = await getInfoPageService<IContactPageData>(
 		"contact-screen",
 		["Seo"]
 	);
-	const contactDataAndMeta = await getInfoPageService<IContactData>(
+	const contactdataPage = await getInfoPageService<IContactData>(
 		"contact-info",
 		["Card.Image"]
 	);
 	return {
-		props: { data: dataAndMeta.data, contactData: contactDataAndMeta.data },
+		props: { data: dataPage.data, contactData: contactdataPage.data },
 		revalidate: 21600,
 	};
 };

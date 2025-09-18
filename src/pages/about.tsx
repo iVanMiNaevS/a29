@@ -80,7 +80,7 @@ const About = ({ data }: props) => {
 export default About;
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataAndMeta = await getInfoPageService<IAboutPageData>("about-screen", [
+	const dataPage = await getInfoPageService<IAboutPageData>("about-screen", [
 		"HeroSection.Principles.Author.Image",
 		"HeroSection.Poster",
 		"TeamSection.Team.Image",
@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	]);
 
 	return {
-		props: { data: dataAndMeta.data },
+		props: { data: dataPage.data },
 		revalidate: 21600,
 	};
 };

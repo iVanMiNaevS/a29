@@ -37,9 +37,9 @@ export default function Home({ data, contactData }: props) {
 				/>
 				<div className="container">
 					<section className={styles.aboutSection}>
-						<h4 className="sectionTitle">О студии</h4>
+						<h2 className="sectionTitle">О студии</h2>
 						<div className={styles.aboutSection__content + " sectionContent"}>
-							<h2>{data.AboutSection.Title}</h2>
+							<p className="h2">{data.AboutSection.Title}</p>
 							<div
 								className={styles.aboutSection__desc + " itemTitle"}
 								dangerouslySetInnerHTML={{
@@ -50,7 +50,7 @@ export default function Home({ data, contactData }: props) {
 					</section>
 					<section className={styles.projectsSection}>
 						<div className={styles.projectsSection__header}>
-							<h4 className="sectionTitle">Проекты</h4>
+							<h2 className="sectionTitle">Проекты</h2>
 							<div className={styles.projectsSec__content + " sectionContent"}>
 								<h2>{data.ProjectSection.Title}</h2>
 							</div>
@@ -77,7 +77,7 @@ export default function Home({ data, contactData }: props) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataAndMeta = await getInfoPageService<IMainPageData>("main-screen", [
+	const dataPage = await getInfoPageService<IMainPageData>("main-screen", [
 		"HeroSection",
 		"HeroSection.Video",
 		"AboutSection",
@@ -86,12 +86,12 @@ export const getStaticProps: GetStaticProps = async () => {
 		"Reviews.Project.Poster",
 		"Seo",
 	]);
-	const contactDataAndMeta = await getInfoPageService<IContactData>(
+	const contactDataPage = await getInfoPageService<IContactData>(
 		"contact-info",
 		["Card.Image"]
 	);
 	return {
-		props: { data: dataAndMeta.data, contactData: contactDataAndMeta.data },
+		props: { data: dataPage.data, contactData: contactDataPage.data },
 		revalidate: 21600,
 	};
 };

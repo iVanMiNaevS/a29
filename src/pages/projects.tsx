@@ -2,7 +2,10 @@ import React, { useEffect, useState, useCallback, useRef } from "react";
 import styles from "@/assets/styles/projects.module.scss";
 import Head from "next/head";
 import { GetStaticProps } from "next";
-import { getInfoPageService } from "@/utils/api/getInfoPageService";
+import {
+	getInfoPageService,
+	getProjects,
+} from "@/utils/api/getInfoPageService";
 import { IProjectPageData } from "@/utils/api/types/screenTypes/IProjectScreen";
 import { ProjectsSection } from "@/components/projects/projectsSection";
 import { IProject } from "@/utils/api/types/IProject";
@@ -30,8 +33,7 @@ const Projects = ({ data, dataProjects }: props) => {
 
 		setIsLoading(true);
 		try {
-			const dataAndMeta = await getInfoPageService<IProject[]>(
-				"projects",
+			const dataPage = await getProjects(
 				["Gallery"],
 				[{ filter: "$eq", field: "Type", value: activeOptions }],
 				[
@@ -40,11 +42,11 @@ const Projects = ({ data, dataProjects }: props) => {
 				]
 			);
 
-			if (Array.isArray(dataAndMeta.data) && dataAndMeta.data.length > 0) {
-				setProjects((prev) => [...prev, ...dataAndMeta.data]);
+			if (Array.isArray(dataPage.data) && dataPage.data.length > 0) {
+				setProjects((prev) => [...prev, ...dataPage.data]);
 				setPage((prev) => prev + 1);
 
-				const totalPages = dataAndMeta.meta.pagination?.pageCount || 0;
+				const totalPages = dataPage.meta.pagination?.pageCount || 0;
 				if (page >= totalPages) {
 					setHasMore(false);
 				}
@@ -88,18 +90,17 @@ const Projects = ({ data, dataProjects }: props) => {
 		const fetchInitialProjects = async () => {
 			setIsLoading(true);
 			try {
-				const dataAndMeta = await getInfoPageService<IProject[]>(
-					"projects",
+				const dataPage = await getProjects(
 					["Gallery"],
 					[{ filter: "$eq", field: "Type", value: activeOptions }],
 					[{ params: "pageSize", value: 3 }]
 				);
 
-				if (Array.isArray(dataAndMeta.data) && dataAndMeta.data.length > 0) {
-					setProjects(dataAndMeta.data);
+				if (Array.isArray(dataPage.data) && dataPage.data.length > 0) {
+					setProjects(dataPage.data);
 					setPage(2);
 
-					const totalPages = dataAndMeta.meta.pagination?.pageCount || 0;
+					const totalPages = dataPage.meta.pagination?.pageCount || 0;
 					setHasMore(totalPages > 1);
 				}
 			} catch (error) {
@@ -164,20 +165,17 @@ const Projects = ({ data, dataProjects }: props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataAndMeta = await getInfoPageService<IProjectPageData>(
+	const dataPage = await getInfoPageService<IProjectPageData>(
 		"project-screen",
 		["Seo", "Projects.Gallery"]
 	);
-	const dataProjects = await getInfoPageService<IProject[]>(
-		"projects",
-		["Gallery"],
-		undefined,
-		[{ params: "pageSize", value: 6 }]
-	);
+	const dataProjects = await getProjects(["Gallery"], undefined, [
+		{ params: "pageSize", value: 6 },
+	]);
 
 	return {
 		props: {
-			data: dataAndMeta.data,
+			data: dataPage.data,
 			dataProjects: dataProjects.data,
 		},
 		revalidate: 21600,

@@ -2,7 +2,6 @@ import { IImageFormat } from "./IImage";
 
 export interface IProject {
 	id: number;
-	documentId: string;
 	Title: string;
 	City: string;
 	Square: string;
@@ -15,5 +14,4 @@ export interface IProject {
 	Slug: string;
 	rank: number;
 	FormatTitle: string;
-	locale: string;
 }

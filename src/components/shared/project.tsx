@@ -15,9 +15,9 @@ export const Project = ({ project }: props) => {
 	return (
 		<Link {...hoverProps} href={"/" + project.Slug} className={styles.project}>
 			<div className={styles.content}>
-				<h3>
+				<h2 className="h3">
 					<pre style={{ whiteSpace: "pre-wrap" }}>{project.FormatTitle}</pre>
-				</h3>
+				</h2>
 				<div className={styles.info}>
 					<p>
 						<span>Город</span>
@@ -41,7 +41,11 @@ export const Project = ({ project }: props) => {
 							blurDataURL={image.blurHash}
 							key={image.id}
 							src={process.env.NEXT_PUBLIC_URL + image.formats.medium.url}
-							alt={image.alternativeText}
+							alt={
+								image.alternativeText
+									? image.alternativeText
+									: "изображение проекта"
+							}
 							width={image.formats.medium.width}
 							height={image.formats.medium.height}
 						/>

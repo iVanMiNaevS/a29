@@ -57,9 +57,11 @@ export const StageSection = ({ data }: Props) => {
 								}}
 							>
 								<Image
-									src={process.env.NEXT_PUBLIC_URL + stage.Image.url}
-									width={stage.Image.width}
-									height={stage.Image.height}
+									src={
+										process.env.NEXT_PUBLIC_URL + stage.Image.formats.medium.url
+									}
+									width={stage.Image.formats.medium.width}
+									height={stage.Image.formats.medium.height}
 									alt={stage.Image.alternativeText}
 								/>
 							</div>

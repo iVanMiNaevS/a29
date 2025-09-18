@@ -98,6 +98,16 @@ header {
 	}
 }
 
+@media (max-width: 1600px) {
+	header {
+		.header {
+			&__content {
+				width: 67%;
+				max-width: 100%;
+			}
+		}
+	}
+}
 @media (max-width: 1178px) {
 	header {
 		.header {

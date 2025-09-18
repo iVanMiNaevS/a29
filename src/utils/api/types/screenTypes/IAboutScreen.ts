@@ -3,7 +3,6 @@ import { ISeo } from "../ISeo";
 
 export interface IAboutPageData {
 	id: number;
-	documentId: string;
 	HeroSection: HeroSection;
 	TeamSection: TeamSection;
 	VacancySection: VacancySection;

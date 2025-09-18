@@ -5,6 +5,7 @@ export class AppRouter {
 	static readonly SERVICES = "/services";
 	static readonly CONTACT = "/contact";
 	static readonly VACANCY = "/about/#vacancy";
+	static readonly POLITIKACOOKIE = "/politikaCookie";
 
 	static readonly ALL = [
 		AppRouter.HOME,
@@ -13,5 +14,6 @@ export class AppRouter {
 		AppRouter.SERVICES,
 		AppRouter.CONTACT,
 		AppRouter.VACANCY,
+		AppRouter.POLITIKACOOKIE,
 	];
 }

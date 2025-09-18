@@ -113,7 +113,7 @@ const Services = ({ data }: props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataAndMeta = await getInfoPageService<IServicesPageData>(
+	const dataPage = await getInfoPageService<IServicesPageData>(
 		"services-screen",
 		[
 			"ServicesSection.Services.Accordions",
@@ -124,7 +124,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		]
 	);
 	return {
-		props: { data: dataAndMeta.data },
+		props: { data: dataPage.data },
 		revalidate: 21600,
 	};
 };

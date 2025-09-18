@@ -28,27 +28,29 @@ export const Footer = () => {
 				<div className={styles.footer__footer}>
 					<div className={styles.footer__left}>
 						<pre>©&nbsp;2025&nbsp;ИП&nbsp;Кобец&nbsp;К.Е.</pre>
-						<Link
+						<a
 							{...hoverProps}
+							download
 							target="_blank"
 							title="Пользовательское соглашение"
-							href="/polzovatelskoe-soglashenie.docx"
+							href="documents/polzovatelskoe-soglashenie.docx"
 						>
 							Пользовательское соглашение
-						</Link>
-						<Link
+						</a>
+						<a
 							{...hoverProps}
 							target="_blank"
+							download
 							title="Политика конфиденциальности"
-							href="/politika-konfidenczialnosti.docx"
+							href="documents/politika-konfidenczialnosti.docx"
 						>
 							Политика конфиденциальности
-						</Link>
+						</a>
 						<Link
 							{...hoverProps}
 							target="_blank"
 							title="Использование файлов Cookie"
-							href="/politika_v_otnoshenii_cookie/"
+							href={AppRouter.POLITIKACOOKIE}
 						>
 							Использование файлов Cookie
 						</Link>

@@ -52,7 +52,6 @@ interface FaqSection {
 
 export interface IServicesPageData {
 	id: number;
-	documentId: string;
 	ServicesSection: ServicesSection;
 	NotDoingSection: INotDoingSection;
 	FaqSection: FaqSection;

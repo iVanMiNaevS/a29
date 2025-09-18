@@ -29,10 +29,10 @@ export const Header = () => {
 	const [isOpenMobMenu, setIsOpenMobMenu] = useState(false);
 
 	async function getContactData() {
-		const contactDataAndMeta = await getInfoPageService<IContactData>(
+		const contactdataPage = await getInfoPageService<IContactData>(
 			"contact-info"
 		);
-		setContactData(contactDataAndMeta.data);
+		setContactData(contactdataPage.data);
 	}
 
 	const { pathname } = useRouter();

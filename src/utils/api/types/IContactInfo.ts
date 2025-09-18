@@ -11,7 +11,6 @@ export interface IContactCard {
 
 export interface IContactData {
 	id: number;
-	documentId: string;
 	Phone: string;
 	Address: string;
 	Email: string;

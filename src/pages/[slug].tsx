@@ -1,4 +1,7 @@
-import { getInfoPageService } from "@/utils/api/getInfoPageService";
+import {
+	getInfoPageService,
+	getProjects,
+} from "@/utils/api/getInfoPageService";
 import { IProject } from "@/utils/api/types/IProject";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
@@ -28,6 +31,10 @@ export const OneProject = ({ project }: props) => {
 						project?.FormatTitle ? project.FormatTitle.toString() : ""
 					} - А29 - Дизайн интерьера`}
 				</title>
+				<meta
+					name="description"
+					content={project?.Description ? project.Description : ""}
+				/>
 			</Head>
 			<div className="container">
 				<section className={styles.heroSection}>
@@ -65,7 +72,11 @@ export const OneProject = ({ project }: props) => {
 										src={process.env.NEXT_PUBLIC_URL + project.Layouts[0].url}
 										placeholder="blur"
 										blurDataURL={project.Layouts[0].blurHash}
-										alt={project.Layouts[0].alternativeText}
+										alt={
+											project.Layouts[0].alternativeText
+												? project.Layouts[0].alternativeText
+												: "Планировочное решение"
+										}
 										width={project.Layouts[0].width}
 										height={project.Layouts[0].height}
 									/>
@@ -99,7 +110,11 @@ export const OneProject = ({ project }: props) => {
 									{...hoverProps}
 									className={`${styles.galleryItem} ${widthClass}`}
 									src={process.env.NEXT_PUBLIC_URL + image.formats.medium.url}
-									alt={image.alternativeText}
+									alt={
+										image.alternativeText
+											? image.alternativeText
+											: "фото из галлереи проекта"
+									}
 									width={image.formats.medium.width}
 									height={image.formats.medium.height}
 									placeholder="blur"
@@ -128,17 +143,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const params = context.params as { slug: string };
 
 	try {
-		const dataAndMeta = await getInfoPageService<IProject[]>(
-			"projects",
+		const dataPage = await getProjects(
 			["Layouts", "Gallery"],
 			[{ filter: "$contains", field: "Slug", value: params.slug }]
 		);
 
-		if (!dataAndMeta?.data || dataAndMeta.data.length === 0) {
+		if (!dataPage?.data || dataPage.data.length === 0) {
 			return { notFound: true };
 		}
 
-		const project = dataAndMeta.data[0];
+		const project = dataPage.data[0];
 
 		if (!project?.Slug) {
 			return { notFound: true };

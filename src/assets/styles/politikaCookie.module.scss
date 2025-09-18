@@ -1,0 +1,26 @@
+.cookieSec {
+	display: flex;
+	gap: 30px;
+	flex-direction: column;
+	padding: var(--section-padding);
+	ul {
+		padding-left: 16px;
+		list-style-position: inside;
+	}
+	a {
+		text-decoration: underline;
+	}
+}
+.cookiePolicy_gray {
+	color: var(--8e-gray);
+}
+.container {
+	display: flex;
+	gap: 15px;
+	flex-direction: column;
+}
+.containerContent {
+	display: flex;
+	gap: 5px;
+	flex-direction: column;
+}

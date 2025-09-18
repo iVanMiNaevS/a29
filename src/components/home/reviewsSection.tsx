@@ -137,6 +137,7 @@ export const ReviewsSection = ({ reviews }: props) => {
 					{reviews.map((review) => {
 						return (
 							<Image
+								key={review.id}
 								className={
 									activeReview?.id === review.id
 										? styles.reviewsSection__img
@@ -150,7 +151,11 @@ export const ReviewsSection = ({ reviews }: props) => {
 								}
 								width={review.Project.Poster.formats.medium.width}
 								height={review.Project.Poster.formats.medium.height}
-								alt={review.Project.Poster.alternativeText}
+								alt={
+									review.Project.Poster.alternativeText
+										? review.Project.Poster.alternativeText
+										: "фото проекта из отзыва"
+								}
 								placeholder="blur"
 								blurDataURL={review.Project.Poster.blurHash}
 							/>

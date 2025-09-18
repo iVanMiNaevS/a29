@@ -20,19 +20,26 @@ export const ContactSection = ({ contactData }: props) => {
 	return (
 		<section className={styles.contactSection}>
 			<div className={styles.contactSection__header}>
-				<h4 className="sectionTitle">Связаться с нами</h4>
-				<h2 className={styles.contactSection__content + " sectionContent"}>
+				<h2 className="sectionTitle">Связаться с нами</h2>
+				<p className={styles.contactSection__content + " sectionContent h2"}>
 					Контактная информация
-				</h2>
+				</p>
 			</div>
 			<div className={styles.contactSection__content}>
 				<div className={styles.contactSection__menegerWrapp}>
 					<div className={styles.contactSection__personInfo}>
 						<Image
-							src={process.env.NEXT_PUBLIC_URL + contactData.Card.Image.url}
-							width={contactData.Card.Image.width}
-							height={contactData.Card.Image.height}
-							alt={contactData.Card.Image.alternativeText}
+							src={
+								process.env.NEXT_PUBLIC_URL +
+								contactData.Card.Image.formats.medium.url
+							}
+							width={contactData.Card.Image.formats.medium.width}
+							height={contactData.Card.Image.formats.medium.height}
+							alt={
+								contactData.Card.Image.alternativeText
+									? contactData.Card.Image.alternativeText
+									: "фото менеджера"
+							}
 						/>
 						<div className={styles.contactSection__personInfoText}>
 							<h3 className="itemTitle">{contactData.Card.Name}</h3>

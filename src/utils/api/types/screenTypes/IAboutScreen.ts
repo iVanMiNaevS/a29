@@ -3,57 +3,56 @@ import { ISeo } from "../ISeo";
 
 export interface IAboutPageData {
 	id: number;
-	HeroSection: HeroSection;
-	TeamSection: TeamSection;
-	VacancySection: VacancySection;
-	Seo: ISeo;
-	locale: string;
+	heroSection: IHeroSection;
+	teamSection: TeamSection;
+	vacancySection: VacancySection;
+	seo: ISeo;
 }
 
 export interface Author {
 	id: number;
-	Name: string;
-	Post: string;
-	Image: IImageFormat;
-	DefaultPosition: number;
-	AlternativePosition: number;
+	name: string;
+	post: string;
+	image: IImageFormat;
+	defaultPosition: number;
+	alternativePosition: number;
 }
 
 export interface Principle {
 	id: number;
-	Text: string;
-	Author: Author;
+	text: string;
+	author: Author;
 }
 
-export interface HeroSection {
+export interface IHeroSection {
 	id: number;
-	Title: string;
-	Poster: IImageFormat;
-	Principles: Principle[];
+	title: string;
+	poster: IImageFormat;
+	principles: Principle[];
 }
 
 export interface ITeamMember {
 	id: number;
-	Name: string;
-	Post: string;
-	Image: IImageFormat;
-	DefaultPosition: number;
-	AlternativePosition: number;
+	name: string;
+	post: string;
+	image: IImageFormat;
+	defaultPosition: number;
+	alternativePosition: number;
 }
 
 export interface TeamSection {
 	id: number;
-	Title: string;
-	Team: ITeamMember[];
+	title: string;
+	team: ITeamMember[];
 }
 
 export interface Vacancy {
 	id: number;
-	Value: string;
+	value: string;
 }
 
 export interface VacancySection {
 	id: number;
-	Poster: IImageFormat;
-	Vacancies: Vacancy[];
+	poster: IImageFormat;
+	vacancies: Vacancy[];
 }

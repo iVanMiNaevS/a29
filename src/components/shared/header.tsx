@@ -6,15 +6,16 @@ import Link from "next/link";
 import logo from "@/assets/images/logo_a29.jpg";
 import { useRouter } from "next/router";
 import { useCursorHover } from "@/hooks/useCursorHover";
-import prLogo from "@/assets/icons/pinterest.svg";
-import vkLogo from "@/assets/icons/vk.svg";
-import instLogo from "@/assets/icons/inst.svg";
-import dzenLogo from "@/assets/icons/dzen.svg";
-import whatsApp from "@/assets/icons/whatsapp.svg";
-import burger from "@/assets/icons/burger.svg";
-import xMark from "@/assets/icons/xmark.svg";
+import prLogo from "@/assets/images/icons/pinterest.svg";
+import vkLogo from "@/assets/images/icons/vk.svg";
+import instLogo from "@/assets/images/icons/inst.svg";
+import dzenLogo from "@/assets/images/icons/dzen.svg";
+import whatsApp from "@/assets/images/icons/whatsapp.svg";
+import burger from "@/assets/images/icons/burger.svg";
+import xMark from "@/assets/images/icons/xmark.svg";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";
 import { IContactData } from "@/utils/api/types/IContactInfo";
+import { contactDataConverter } from "@/utils/api/converters/contactDataConverter";
 export const Header = () => {
 	const hoverProps = useCursorHover(20);
 	const headerLinks = [
@@ -30,7 +31,9 @@ export const Header = () => {
 
 	async function getContactData() {
 		const contactdataPage = await getInfoPageService<IContactData>(
-			"contact-info"
+			"contact-info",
+			contactDataConverter,
+			[]
 		);
 		setContactData(contactdataPage.data);
 	}
@@ -86,23 +89,23 @@ export const Header = () => {
 					{contactData ? (
 						<div className={styles.contactSection__contactInfoLinks}>
 							<Link
-								href={contactData.Pinterest}
+								href={contactData.pinterest}
 								target="_blank"
 								{...hoverProps}
 							>
 								<Image src={prLogo} width={25} height={25} alt="pinterest" />
 							</Link>
-							<Link href={contactData.Vk} target="_blank" {...hoverProps}>
+							<Link href={contactData.vk} target="_blank" {...hoverProps}>
 								<Image src={vkLogo} width={25} height={25} alt="vk" />
 							</Link>
 							<Link
-								href={contactData.Instagram}
+								href={contactData.instagram}
 								target="_blank"
 								{...hoverProps}
 							>
 								<Image src={instLogo} width={25} height={25} alt="instagram" />
 							</Link>
-							<Link href={contactData.Dzen} target="_blank" {...hoverProps}>
+							<Link href={contactData.dzen} target="_blank" {...hoverProps}>
 								<Image src={dzenLogo} width={25} height={25} alt="dzen" />
 							</Link>
 						</div>

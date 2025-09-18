@@ -10,8 +10,8 @@ import "swiper/css/autoplay";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@/assets/styles/Home.module.scss";
-
-import arrow from "@/assets/icons/review_arrow.svg";
+import notImage from "@/assets/images/notImage.jpg";
+import arrow from "@/assets/images/icons/review_arrow.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";
 
 type props = {
@@ -71,12 +71,12 @@ export const ReviewsSection = ({ reviews }: props) => {
 								className={styles.reviewsSection__slide}
 								key={review.id || `review-${index}`}
 							>
-								<h3>{review.Project.Title}</h3>
+								<h3>{review.project.title}</h3>
 								<div className={styles.reviewsSection__info}>
-									<p>{review.Text}</p>
+									<p>{review.text}</p>
 									<div className={styles.reviewsSection__infoFooter}>
-										<p>{review.Author}</p>
-										<Link href={review.YandexHref}>
+										<p>{review.author}</p>
+										<Link href={review.yandexHref}>
 											Отзыв на яндекс{" "}
 											<Image alt="стрелка" src={arrow} width={10} height={10} />
 										</Link>
@@ -86,7 +86,7 @@ export const ReviewsSection = ({ reviews }: props) => {
 						))}
 					</Swiper>
 					<div className={styles.reviewsSection__reviewsWrappFooter}>
-						<Link href={"/" + activeReview?.Project.Slug}>Смотреть проект</Link>
+						<Link href={"/" + activeReview?.project.slug}>Смотреть проект</Link>
 						<div className={styles.reviewsSection__navigation}>
 							<div
 								{...hoverProps}
@@ -146,18 +146,30 @@ export const ReviewsSection = ({ reviews }: props) => {
 										  styles.reviewsSection__hiddenImg
 								}
 								src={
-									process.env.NEXT_PUBLIC_URL +
-									review.Project.Poster.formats.medium.url
+									review.project.poster
+										? process.env.NEXT_PUBLIC_URL +
+										  review.project.poster.formats.medium.url
+										: notImage
 								}
-								width={review.Project.Poster.formats.medium.width}
-								height={review.Project.Poster.formats.medium.height}
+								width={
+									review.project.poster
+										? review.project.poster.formats.medium.width
+										: 700
+								}
+								height={
+									review.project.poster
+										? review.project.poster.formats.medium.height
+										: 480
+								}
 								alt={
-									review.Project.Poster.alternativeText
-										? review.Project.Poster.alternativeText
+									review.project.poster && review.project.poster.alternativeText
+										? review.project.poster.alternativeText
 										: "фото проекта из отзыва"
 								}
 								placeholder="blur"
-								blurDataURL={review.Project.Poster.blurHash}
+								blurDataURL={
+									review.project.poster ? review.project.poster.blurHash : ""
+								}
 							/>
 						);
 					})}

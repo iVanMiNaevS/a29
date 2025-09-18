@@ -1,4 +1,3 @@
-// hooks/useCursorHover.ts
 import { useStore } from "../store/useStore";
 
 export const useCursorHover = (

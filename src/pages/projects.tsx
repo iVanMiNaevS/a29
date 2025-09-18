@@ -10,6 +10,7 @@ import { IProjectPageData } from "@/utils/api/types/screenTypes/IProjectScreen";
 import { ProjectsSection } from "@/components/projects/projectsSection";
 import { IProject } from "@/utils/api/types/IProject";
 import { useCursorHover } from "@/hooks/useCursorHover";
+import { projectPageConverter } from "@/utils/api/converters/projectsPageConverter";
 
 type props = {
 	data: IProjectPageData;
@@ -116,16 +117,16 @@ const Projects = ({ data, dataProjects }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<title>{data.seo ? data.seo.title : "A29"}</title>
 				<meta
 					name="description"
-					content={data.Seo ? data.Seo.Description : "Описание"}
+					content={data.seo ? data.seo.description : "Описание"}
 				/>
 			</Head>
 			<div className="container">
 				<section className={styles.heroSection}>
 					<h1 className="sectionTitle">Проекты</h1>
-					<div className="sectionContent h1">{data.Title}</div>
+					<div className="sectionContent h1">{data.title}</div>
 				</section>
 				<section>
 					<div className={styles.projects__optionsWrapp}>
@@ -167,6 +168,7 @@ const Projects = ({ data, dataProjects }: props) => {
 export const getStaticProps: GetStaticProps = async () => {
 	const dataPage = await getInfoPageService<IProjectPageData>(
 		"project-screen",
+		projectPageConverter,
 		["Seo", "Projects.Gallery"]
 	);
 	const dataProjects = await getProjects(["Gallery"], undefined, [

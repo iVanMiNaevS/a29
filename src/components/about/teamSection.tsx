@@ -15,7 +15,7 @@ type props = {
 export const TeamSection = ({ data }: props) => {
 	const hoverProps = useCursorHover(20);
 	const [mainMember, setMainMember] = useState<ITeamMember>(
-		data.TeamSection.Team[0]
+		data.teamSection.team[0]
 	);
 	const [layout, setLayout] = useState<"default" | "alternative">("default");
 	const [buttons, setButtons] = useState([
@@ -94,7 +94,7 @@ export const TeamSection = ({ data }: props) => {
 						})}
 					</div>
 				</div>
-				<p className="sectionContent h3">{data.TeamSection.Title}</p>
+				<p className="sectionContent h3">{data.teamSection.title}</p>
 			</div>
 			<div className={`${styles.teamSec__teamWrapp} ${styles[layout]}`}>
 				<div className={styles.teamSec__mainCard} style={{ gridArea: "main" }}>
@@ -102,17 +102,17 @@ export const TeamSection = ({ data }: props) => {
 						<>
 							<Image
 								key={mainMember.id}
-								src={process.env.NEXT_PUBLIC_URL + mainMember.Image.url}
-								alt={mainMember.Image.alternativeText}
-								width={mainMember.Image.width}
-								height={mainMember.Image.height}
+								src={process.env.NEXT_PUBLIC_URL + mainMember.image.url}
+								alt={mainMember.image.alternativeText}
+								width={mainMember.image.width}
+								height={mainMember.image.height}
 							/>
-							<p className="itemTitle">{mainMember.Name}</p>
-							<p className={styles.teamSec__mainCardPost}>{mainMember.Post}</p>
+							<p className="itemTitle">{mainMember.name}</p>
+							<p className={styles.teamSec__mainCardPost}>{mainMember.post}</p>
 						</>
 					)}
 				</div>
-				{data.TeamSection.Team.map((member, index) => {
+				{data.teamSection.team.map((member, index) => {
 					const area = `pos${index + 1}`;
 
 					return (
@@ -130,10 +130,10 @@ export const TeamSection = ({ data }: props) => {
 							{...hoverProps}
 						>
 							<Image
-								src={process.env.NEXT_PUBLIC_URL + member.Image.url}
-								alt={member.Name}
-								width={member.Image.width}
-								height={member.Image.height}
+								src={process.env.NEXT_PUBLIC_URL + member.image.url}
+								alt={member.name}
+								width={member.image.width}
+								height={member.image.height}
 							/>
 						</div>
 					);

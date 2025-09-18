@@ -1,4 +1,3 @@
-// stores/StoreContext.ts
 import { createContext, useContext } from "react";
 import { RootStore } from "./rootStore";
 

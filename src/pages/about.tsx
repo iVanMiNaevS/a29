@@ -9,6 +9,7 @@ import { useCursorHover } from "@/hooks/useCursorHover";
 
 import { HeroSection } from "@/components/about/heroSection";
 import { TeamSection } from "@/components/about/teamSection";
+import { aboutPageConverter } from "@/utils/api/converters/aboutPageConverter";
 
 type props = {
 	data: IAboutPageData;
@@ -19,10 +20,10 @@ const About = ({ data }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<title>{data.seo ? data.seo.title : "A29"}</title>
 				<meta
 					name="description"
-					content={data.Seo ? data.Seo.Description : "Описание"}
+					content={data.seo ? data.seo.description : "Описание"}
 				/>
 			</Head>
 			<div className="container">
@@ -32,14 +33,14 @@ const About = ({ data }: props) => {
 					<h2 className="sectionTitle">Вакансии</h2>
 					<div className={styles.vacancySec__wrapp}>
 						<div className={styles.vacancySec__text}>
-							{data.VacancySection
-								? data.VacancySection.Vacancies.map((vacancy) => {
+							{data.vacancySection
+								? data.vacancySection.vacancies.map((vacancy) => {
 										return (
 											<h3
 												key={vacancy.id}
 												className={styles.vacancySec__item + " itemTitle"}
 											>
-												{vacancy.Value}
+												{vacancy.value}
 											</h3>
 										);
 								  })
@@ -65,10 +66,22 @@ const About = ({ data }: props) => {
 							</div>
 						</div>
 						<Image
-							src={process.env.NEXT_PUBLIC_URL + data.VacancySection.Poster.url}
-							width={data.VacancySection.Poster.width}
-							height={data.VacancySection.Poster.height}
-							alt={data.VacancySection.Poster.alternativeText}
+							src={
+								data.vacancySection
+									? process.env.NEXT_PUBLIC_URL + data.vacancySection.poster.url
+									: ""
+							}
+							width={
+								data.vacancySection ? data.vacancySection.poster.width : 400
+							}
+							height={
+								data.vacancySection ? data.vacancySection.poster.height : 400
+							}
+							alt={
+								data.vacancySection
+									? data.vacancySection.poster.alternativeText
+									: "фото"
+							}
 							className={styles.vacancyImg + " sectionContent"}
 						/>
 					</div>
@@ -80,15 +93,18 @@ const About = ({ data }: props) => {
 export default About;
 
 export const getStaticProps: GetStaticProps = async () => {
-	const dataPage = await getInfoPageService<IAboutPageData>("about-screen", [
-		"HeroSection.Principles.Author.Image",
-		"HeroSection.Poster",
-		"TeamSection.Team.Image",
-		"VacancySection.Poster",
-		"VacancySection.Vacancies",
-		"Seo",
-	]);
-
+	const dataPage = await getInfoPageService<IAboutPageData>(
+		"about-screen",
+		aboutPageConverter,
+		[
+			"HeroSection.Principles.Author.Image",
+			"HeroSection.Poster",
+			"TeamSection.Team.Image",
+			"VacancySection.Poster",
+			"VacancySection.Vacancies",
+			"Seo",
+		]
+	);
 	return {
 		props: { data: dataPage.data },
 		revalidate: 21600,

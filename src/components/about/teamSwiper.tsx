@@ -29,7 +29,7 @@ export const TeamSwiper = ({ data }: props) => {
 			slidesPerView={"auto"}
 			className={styles.teamSec__swiper}
 		>
-			{data.TeamSection.Team.map((member, index) => (
+			{data.teamSection.team.map((member, index) => (
 				<SwiperSlide
 					style={{ width: "300px" }}
 					className={styles.teamSec__slide}
@@ -37,13 +37,13 @@ export const TeamSwiper = ({ data }: props) => {
 				>
 					<>
 						<Image
-							src={process.env.NEXT_PUBLIC_URL + member.Image.url}
-							alt={member.Image.alternativeText}
-							width={member.Image.width}
-							height={member.Image.height}
+							src={process.env.NEXT_PUBLIC_URL + member.image.url}
+							alt={member.image.alternativeText}
+							width={member.image.width}
+							height={member.image.height}
 						/>
-						<p className="itemTitle">{member.Name}</p>
-						<p className={styles.teamSec__mainCardPost}>{member.Post}</p>
+						<p className="itemTitle">{member.name}</p>
+						<p className={styles.teamSec__mainCardPost}>{member.post}</p>
 					</>
 				</SwiperSlide>
 			))}

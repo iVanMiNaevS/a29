@@ -9,6 +9,7 @@ import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";
 import { NotDoingSection } from "@/components/services/notDoingSection";
 import { StageSection } from "@/components/services/stageSection";
+import { servicesPageConverter } from "@/utils/api/converters/servicesPageConverter";
 
 type props = {
 	data: IServicesPageData;
@@ -18,10 +19,10 @@ const Services = ({ data }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<title>{data.seo ? data.seo.title : "A29"}</title>
 				<meta
 					name="description"
-					content={data.Seo ? data.Seo.Description : "Описание"}
+					content={data.seo ? data.seo.description : "Описание"}
 				/>
 			</Head>
 			<div className={styles.servicePage + " container"}>
@@ -30,36 +31,36 @@ const Services = ({ data }: props) => {
 						<h1 className="sectionTitle">услуги</h1>
 						<div className={styles.servicesSec__titleWrapp + " sectionContent"}>
 							<p className="h1">
-								{data.ServicesSection ? data.ServicesSection.Title : "Услуги"}
+								{data.servicesSection ? data.servicesSection.title : "Услуги"}
 							</p>
 							<p className={styles.servicesSec__desc + " itemTitle"}>
-								{data.ServicesSection
-									? data.ServicesSection.Description
+								{data.servicesSection
+									? data.servicesSection.description
 									: "Описание"}
 							</p>
 						</div>
 					</div>
 					<div className={styles.servicesSec__services}>
-						{data.ServicesSection && data
-							? data.ServicesSection.Services.map((service) => {
+						{data.servicesSection && data
+							? data.servicesSection.services.map((service) => {
 									return (
 										<div
 											key={service.id}
 											className={styles.servicesSec__serviceWrapp}
 										>
-											<h2 className="h3">{service.Title}</h2>
+											<h2 className="h3">{service.title}</h2>
 											<div className="sectionContent">
-												{service.Accordions.map((accordion, index) => {
+												{service.accordions.map((accordion, index) => {
 													return (
 														<DropDownInfo
 															paddingTop={index !== 0}
 															key={accordion.id}
 															notBorder={
-																index === service.Accordions.length - 1
+																index === service.accordions.length - 1
 															}
-															title={accordion.Title}
+															title={accordion.title}
 														>
-															<pre>{accordion.Description}</pre>
+															<pre>{accordion.description}</pre>
 														</DropDownInfo>
 													);
 												})}
@@ -71,31 +72,31 @@ const Services = ({ data }: props) => {
 					</div>
 				</section>
 			</div>
-			<NotDoingSection data={data.NotDoingSection} />
+			<NotDoingSection data={data.notDoingSection} />
 			<div className={styles.servicePage}>
-				<StageSection data={data.StageSection} />
+				<StageSection data={data.stageSection} />
 				<section className={styles.faqSec}>
 					<div className="container">
 						<div className={styles.faqSec__header}>
 							<h2 className="sectionTitle">вопросы</h2>
 							<p className="h2 sectionContent">
-								{data.FaqSection ? data.FaqSection.Title : "Вопросы"}
+								{data.faqSection ? data.faqSection.title : "Вопросы"}
 							</p>
 						</div>
 						<div className={styles.faqSec__accordionsWrapp}>
 							<div className={styles.faqSec__accordions}>
-								{data.FaqSection
-									? data.FaqSection.Accordions.map((quest, index) => {
+								{data.faqSection
+									? data.faqSection.accordions.map((quest, index) => {
 											return (
 												<DropDownInfo
 													key={quest.id}
 													paddingTop
 													notBorder={
-														index === data.FaqSection.Accordions.length - 1
+														index === data.faqSection.accordions.length - 1
 													}
-													title={quest.Title}
+													title={quest.title}
 												>
-													<pre>{quest.Description}</pre>
+													<pre>{quest.description}</pre>
 												</DropDownInfo>
 											);
 									  })
@@ -115,6 +116,7 @@ const Services = ({ data }: props) => {
 export const getStaticProps: GetStaticProps = async () => {
 	const dataPage = await getInfoPageService<IServicesPageData>(
 		"services-screen",
+		servicesPageConverter,
 		[
 			"ServicesSection.Services.Accordions",
 			"NotDoingSection.Accordions",

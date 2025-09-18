@@ -2,6 +2,6 @@ import { ISeo } from "../ISeo";
 
 export interface IContactPageData {
 	id: number;
-	MapHref: string;
-	Seo: ISeo;
+	mapHref: string;
+	seo: ISeo;
 }

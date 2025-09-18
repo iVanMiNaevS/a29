@@ -2,8 +2,8 @@ import { IProject } from "./IProject";
 
 export interface IReview {
 	id: number;
-	Text: string;
-	Author: string;
-	YandexHref: string;
-	Project: IProject;
+	text: string;
+	author: string;
+	yandexHref: string;
+	project: IProject;
 }

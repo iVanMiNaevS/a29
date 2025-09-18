@@ -1,4 +1,3 @@
-// stores/CursorStore.ts
 import { makeAutoObservable } from "mobx";
 
 export class CursorStore {

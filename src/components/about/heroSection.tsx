@@ -33,17 +33,19 @@ export const HeroSection = ({ data }: props) => {
 		<section className={styles.heroSection}>
 			<div className={styles.heroSection__header}>
 				<h1 className="sectionTitle">О нас</h1>
-				<p className="h1 sectionContent">{data.HeroSection.Title}</p>
+				<p className="h1 sectionContent">
+					{data.heroSection ? data.heroSection.title : ""}
+				</p>
 			</div>
 			<div className={styles.heroSection__sliderSecWrapp}>
 				<Image
 					className={styles.heroSection__img}
-					src={process.env.NEXT_PUBLIC_URL + data.HeroSection.Poster.url}
+					src={process.env.NEXT_PUBLIC_URL + data.heroSection.poster.url}
 					placeholder="blur"
-					blurDataURL={data.HeroSection.Poster.blurHash}
-					width={data.HeroSection.Poster.width}
-					height={data.HeroSection.Poster.height}
-					alt={data.HeroSection.Poster.alternativeText}
+					blurDataURL={data.heroSection.poster.blurHash}
+					width={data.heroSection.poster.width}
+					height={data.heroSection.poster.height}
+					alt={data.heroSection.poster.alternativeText}
 				/>
 				<div className={styles.heroSection__sliderWrapp}>
 					<Swiper
@@ -61,25 +63,25 @@ export const HeroSection = ({ data }: props) => {
 						}}
 						className={styles.heroSection__swiper}
 					>
-						{data.HeroSection.Principles.map((principle, index) => (
+						{data.heroSection.principles.map((principle, index) => (
 							<SwiperSlide key={principle.id || `review-${index}`}>
 								<div className={styles.heroSection__slideWrapp}>
 									<p className={styles.heroSection__slideTitle + " itemTitle"}>
-										{principle.Text}
+										{principle.text}
 									</p>
 									<div className={styles.heroSection__personWrapp}>
 										<Image
 											src={
 												process.env.NEXT_PUBLIC_URL +
-												principle.Author.Image.formats.medium.url
+												principle.author.image.formats.medium.url
 											}
-											width={principle.Author.Image.formats.medium.width}
-											height={principle.Author.Image.formats.medium.height}
-											alt={principle.Author.Image.alternativeText}
+											width={principle.author.image.formats.medium.width}
+											height={principle.author.image.formats.medium.height}
+											alt={principle.author.image.alternativeText}
 										/>
 										<div className={styles.heroSection__personInfo}>
-											<p className="itemTitle">{principle.Author.Name}</p>
-											<pre>{principle.Author.Post}</pre>
+											<p className="itemTitle">{principle.author.name}</p>
+											<pre>{principle.author.post}</pre>
 										</div>
 									</div>
 								</div>

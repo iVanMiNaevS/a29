@@ -3,58 +3,58 @@ import { ISeo } from "../ISeo";
 
 interface Stage {
 	id: number;
-	Title: string;
-	Text: string;
-	Image: IImageFormat;
+	title: string;
+	text: string;
+	image: IImageFormat;
 }
 
 export interface IStageSection {
 	id: number;
-	Title: string;
-	Stages: Stage[];
+	title: string;
+	stages: Stage[];
 }
 
 interface Service {
 	id: number;
-	Title: string;
-	Accordions: Accordion[];
+	title: string;
+	accordions: Accordion[];
 }
 
 interface ServicesSection {
 	id: number;
-	Services: Service[];
-	Title: string;
-	Description: string;
+	services: Service[];
+	title: string;
+	description: string;
 }
 
 interface NotDoingAccordion {
 	id: number;
-	Value: string;
+	value: string;
 }
 
 export interface INotDoingSection {
 	id: number;
-	Title: string;
-	Accordions: NotDoingAccordion[];
+	title: string;
+	accordions: NotDoingAccordion[];
 }
 
 interface Accordion {
 	id: number;
-	Title: string;
-	Description: string;
+	title: string;
+	description: string;
 }
 
 interface FaqSection {
 	id: number;
-	Title: string;
-	Accordions: Accordion[];
+	title: string;
+	accordions: Accordion[];
 }
 
 export interface IServicesPageData {
 	id: number;
-	ServicesSection: ServicesSection;
-	NotDoingSection: INotDoingSection;
-	FaqSection: FaqSection;
-	Seo: ISeo;
-	StageSection: IStageSection;
+	servicesSection: ServicesSection;
+	notDoingSection: INotDoingSection;
+	faqSection: FaqSection;
+	seo: ISeo;
+	stageSection: IStageSection;
 }

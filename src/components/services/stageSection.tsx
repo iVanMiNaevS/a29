@@ -45,11 +45,11 @@ export const StageSection = ({ data }: Props) => {
 			<div className="container">
 				<div className={styles.stageSec__header}>
 					<h2 className="sectionTitle">как мы работаем</h2>
-					<div className={"sectionContent h2"}>{data.Title}</div>
+					<div className={"sectionContent h2"}>{data.title}</div>
 				</div>
 				<div className={styles.stageSec__stagesWrapp}>
-					{data.Stages.map((stage, index) => (
-						<div className={styles.stageSec__stage} key={stage.Title}>
+					{data.stages.map((stage, index) => (
+						<div className={styles.stageSec__stage} key={stage.title}>
 							<div
 								className={styles.stageSec__stageImgWrapp}
 								ref={(el) => {
@@ -58,16 +58,16 @@ export const StageSection = ({ data }: Props) => {
 							>
 								<Image
 									src={
-										process.env.NEXT_PUBLIC_URL + stage.Image.formats.medium.url
+										process.env.NEXT_PUBLIC_URL + stage.image.formats.medium.url
 									}
-									width={stage.Image.formats.medium.width}
-									height={stage.Image.formats.medium.height}
-									alt={stage.Image.alternativeText}
+									width={stage.image.formats.medium.width}
+									height={stage.image.formats.medium.height}
+									alt={stage.image.alternativeText}
 								/>
 							</div>
 							<div className={styles.stageSec__stageContent}>
-								<h3 className="itemTitle">{stage.Title}</h3>
-								<pre>{stage.Text}</pre>
+								<h3 className="itemTitle">{stage.title}</h3>
+								<pre>{stage.text}</pre>
 							</div>
 						</div>
 					))}

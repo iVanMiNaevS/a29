@@ -10,6 +10,8 @@ import styles from "@/assets/styles/contact.module.scss";
 import { ButtonContact } from "@/components/shared/buttonContact";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";
+import { contactDataConverter } from "@/utils/api/converters/contactDataConverter";
+import { contactPageConverter } from "@/utils/api/converters/contactPageConverter";
 
 type props = {
 	data: IContactPageData;
@@ -21,17 +23,17 @@ export const Contact = ({ data, contactData }: props) => {
 	return (
 		<>
 			<Head>
-				<title>{data.Seo ? data.Seo.Title : "A29"}</title>
+				<title>{data.seo ? data.seo.title : "A29"}</title>
 				<meta
 					name="description"
-					content={data.Seo ? data.Seo.Description : "Описание"}
+					content={data.seo ? data.seo.description : "Описание"}
 				/>
 			</Head>
 			<div className="container">
 				<div className={styles.contactWrapp}>
 					<ContactSection contactData={contactData} />
 					<div className={styles.contactMapWrapp}>
-						<iframe src={data.MapHref} frameBorder="0" allowFullScreen></iframe>
+						<iframe src={data.mapHref} frameBorder="0" allowFullScreen></iframe>
 					</div>
 				</div>
 				<HaveAQuestSection />
@@ -43,10 +45,12 @@ export const Contact = ({ data, contactData }: props) => {
 export const getStaticProps: GetStaticProps = async () => {
 	const dataPage = await getInfoPageService<IContactPageData>(
 		"contact-screen",
+		contactPageConverter,
 		["Seo"]
 	);
 	const contactdataPage = await getInfoPageService<IContactData>(
 		"contact-info",
+		contactDataConverter,
 		["Card.Image"]
 	);
 	return {

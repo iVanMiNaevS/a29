@@ -2,21 +2,21 @@ import { IImageFormat } from "./IImage";
 
 export interface IContactCard {
 	id: number;
-	Name: string;
-	About: string;
-	Telegram: string;
-	Whatsapp: string;
-	Image: IImageFormat;
+	name: string;
+	about: string;
+	telegram: string;
+	whatsapp: string;
+	image: IImageFormat;
 }
 
 export interface IContactData {
 	id: number;
-	Phone: string;
-	Address: string;
-	Email: string;
-	Pinterest: string;
-	Vk: string;
-	Instagram: string;
-	Dzen: string;
-	Card: IContactCard;
+	phone: string;
+	address: string;
+	email: string;
+	pinterest: string;
+	vk: string;
+	instagram: string;
+	dzen: string;
+	card?: IContactCard;
 }

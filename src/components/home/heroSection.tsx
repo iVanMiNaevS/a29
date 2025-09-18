@@ -1,13 +1,13 @@
-import { IVideo } from "@/utils/api/types/screenTypes/IMainScreen";
 import React, { useState } from "react";
 import styles from "@/assets/styles/Home.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { ButtonContact } from "../shared/buttonContact";
 import { Modal } from "../shared/modal";
+import { IImageFormat } from "@/utils/api/types/IImage";
 
 type props = {
 	title: string;
-	video: IVideo;
+	video: IImageFormat;
 };
 
 export const HeroSection = ({ title, video }: props) => {

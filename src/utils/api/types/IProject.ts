@@ -2,16 +2,16 @@ import { IImageFormat } from "./IImage";
 
 export interface IProject {
 	id: number;
-	Title: string;
-	City: string;
-	Square: string;
-	Year: string;
-	Gallery: IImageFormat[];
-	Poster: IImageFormat;
-	Layouts: IImageFormat[];
-	Description: string;
-	Type: string;
-	Slug: string;
+	title: string;
+	city: string;
+	square: string;
+	year: string;
+	gallery: IImageFormat[];
+	poster: IImageFormat | null;
+	layouts: IImageFormat[];
+	description: string;
+	type: string;
+	slug: string;
 	rank: number;
-	FormatTitle: string;
+	formatTitle: string;
 }

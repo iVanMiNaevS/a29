@@ -28,32 +28,32 @@ export const OneProject = ({ project }: props) => {
 			<Head>
 				<title>
 					{`${
-						project?.FormatTitle ? project.FormatTitle.toString() : ""
+						project?.formatTitle ? project.formatTitle.toString() : ""
 					} - А29 - Дизайн интерьера`}
 				</title>
 				<meta
 					name="description"
-					content={project?.Description ? project.Description : ""}
+					content={project?.description ? project.description : ""}
 				/>
 			</Head>
 			<div className="container">
 				<section className={styles.heroSection}>
 					<h1 className="sectionTitle">Проекты</h1>
 					<div className="sectionContent">
-						<div className="h1">{project.FormatTitle}</div>
+						<div className="h1">{project.formatTitle}</div>
 						<div className={styles.heroSection__characteristicsWrapp}>
 							<div className={styles.info}>
 								<p>
 									<span>Город</span>
-									<span>{project.City ? project.City : "Нет данных"}</span>
+									<span>{project.city ? project.city : "Нет данных"}</span>
 								</p>
 								<p>
 									<span>Площадь</span>
-									<span>{project.Square ? project.Square : "Нет данных"}</span>
+									<span>{project.square ? project.square : "Нет данных"}</span>
 								</p>
 								<p>
 									<span>Год</span>
-									<span>{project.Year ? project.Year : "Нет данных"}</span>
+									<span>{project.year ? project.year : "Нет данных"}</span>
 								</p>
 							</div>
 						</div>
@@ -62,23 +62,23 @@ export const OneProject = ({ project }: props) => {
 				<section className={styles.aboutSection}>
 					<h2 className="h3">О проекте</h2>
 					<div className={styles.aboutSection__accordions + " sectionContent"}>
-						<DropDownInfo notBorder={!project.Layouts} title="Задачи проекта">
-							<pre>{project.Description}</pre>
+						<DropDownInfo notBorder={!project.layouts} title="Задачи проекта">
+							<pre>{project.description}</pre>
 						</DropDownInfo>
-						{project.Layouts && (
+						{project.layouts && (
 							<DropDownInfo notBorder title="Планировочное решение">
-								{project.Layouts ? (
+								{project.layouts ? (
 									<Image
-										src={process.env.NEXT_PUBLIC_URL + project.Layouts[0].url}
+										src={process.env.NEXT_PUBLIC_URL + project.layouts[0].url}
 										placeholder="blur"
-										blurDataURL={project.Layouts[0].blurHash}
+										blurDataURL={project.layouts[0].blurHash}
 										alt={
-											project.Layouts[0].alternativeText
-												? project.Layouts[0].alternativeText
+											project.layouts[0].alternativeText
+												? project.layouts[0].alternativeText
 												: "Планировочное решение"
 										}
-										width={project.Layouts[0].width}
-										height={project.Layouts[0].height}
+										width={project.layouts[0].width}
+										height={project.layouts[0].height}
 									/>
 								) : (
 									<Image
@@ -95,7 +95,7 @@ export const OneProject = ({ project }: props) => {
 				<section className={styles.gallerySec}>
 					<h2 className="h3">Галерея</h2>
 					<div className={styles.galleryWrapp}>
-						{project.Gallery.map((image, index) => {
+						{project.gallery.map((image, index) => {
 							const positionInCycle = index % 7;
 							const widthClass =
 								positionInCycle < 4 ? styles.item25 : styles.item33;
@@ -130,7 +130,7 @@ export const OneProject = ({ project }: props) => {
 							setIsOpenModal(false);
 							document.body.classList.remove("notScroll");
 						}}
-						imgs={project.Gallery}
+						imgs={project.gallery}
 					/>
 				</section>
 				<HaveAQuestSection />
@@ -154,7 +154,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 		const project = dataPage.data[0];
 
-		if (!project?.Slug) {
+		if (!project?.slug) {
 			return { notFound: true };
 		}
 

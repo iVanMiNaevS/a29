@@ -1,4 +1,3 @@
-// stores/RootStore.ts
 import { CursorStore } from "./cursorStore";
 
 export class RootStore {

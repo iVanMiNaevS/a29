@@ -1,14 +1,14 @@
 import React, { useRef, useState } from "react";
 import styles from "@/assets/styles/shared/modal.module.scss";
 import Image from "next/image";
-import closeIcon from "@/assets/icons/close.svg";
+import closeIcon from "@/assets/images/icons/close.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";
-import tel from "@/assets/icons/phone.svg";
-import email from "@/assets/icons/email.svg";
-import copy from "@/assets/icons/copy.svg";
+import tel from "@/assets/images/icons/phone.svg";
+import email from "@/assets/images/icons/email.svg";
+import copy from "@/assets/images/icons/copy.svg";
 
-import activeCheckbox from "@/assets/icons/check_active.svg";
-import checkbox from "@/assets/icons/check.svg";
+import activeCheckbox from "@/assets/images/icons/check_active.svg";
+import checkbox from "@/assets/images/icons/check.svg";
 
 type ModalProps = {
 	isOpen: boolean;

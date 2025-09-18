@@ -13,28 +13,28 @@ export const Project = ({ project }: props) => {
 	useCursorReset();
 	const hoverProps = useCursorHover(120, true);
 	return (
-		<Link {...hoverProps} href={"/" + project.Slug} className={styles.project}>
+		<Link {...hoverProps} href={"/" + project.slug} className={styles.project}>
 			<div className={styles.content}>
 				<h2 className="h3">
-					<pre style={{ whiteSpace: "pre-wrap" }}>{project.FormatTitle}</pre>
+					<pre style={{ whiteSpace: "pre-wrap" }}>{project.formatTitle}</pre>
 				</h2>
 				<div className={styles.info}>
 					<p>
 						<span>Город</span>
-						{project.City ? project.City : "Нет данных"}
+						{project.city ? project.city : "Нет данных"}
 					</p>
 					<p>
 						<span>Площадь</span>
-						{project.Square ? project.Square : "Нет данных"}
+						{project.square ? project.square : "Нет данных"}
 					</p>
 					<p>
 						<span>Год</span>
-						{project.Year ? project.Year : "Нет данных"}
+						{project.year ? project.year : "Нет данных"}
 					</p>
 				</div>
 			</div>
 			<div className={styles.images}>
-				{project.Gallery.slice(0, 3).map((image) => {
+				{project.gallery.slice(0, 3).map((image) => {
 					return (
 						<Image
 							placeholder="blur"

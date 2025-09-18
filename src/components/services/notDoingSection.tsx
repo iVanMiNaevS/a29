@@ -59,22 +59,22 @@ export const NotDoingSection = ({ data }: Props) => {
 					<div className={styles.notDoingSec__header}>
 						<h2 className="sectionTitle">не делаем</h2>
 						<div className="sectionContent h2">
-							{data ? data.Title : "услуги которые не делаем"}
+							{data ? data.title : "услуги которые не делаем"}
 						</div>
 					</div>
 					<div className={styles.notDoingSec__accordions}>
 						{data
-							? data.Accordions.map((accordion, index) => (
+							? data.accordions.map((accordion, index) => (
 									<div
 										key={accordion.id}
 										className={`${styles.dropDown} ${
-											index === data.Accordions.length - 1
+											index === data.accordions.length - 1
 												? styles.notBorder
 												: ""
 										} ${index !== 0 ? styles.paddingTop : ""}`}
 									>
 										<div className={styles.dropDown__header}>
-											<h3 className="itemTitle">{accordion.Value}</h3>
+											<h3 className="itemTitle">{accordion.value}</h3>
 										</div>
 									</div>
 							  ))

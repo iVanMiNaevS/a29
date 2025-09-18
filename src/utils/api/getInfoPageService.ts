@@ -1,3 +1,4 @@
+import { projectsConverter } from "./converters/shared/projectsConverter";
 import { IMeta } from "./types/IMeta";
 import { IProject } from "./types/IProject";
 import { IMainPageData } from "./types/screenTypes/IMainScreen";
@@ -11,6 +12,7 @@ export const getInfoPageService = async <T = IMainPageData>(
 		| "about-screen"
 		| "project-screen",
 
+	converter: (data: any) => T,
 	queryValues?: string[] | []
 ): Promise<{ data: T }> => {
 	try {
@@ -24,11 +26,12 @@ export const getInfoPageService = async <T = IMainPageData>(
 		const queryParams = new URLSearchParams(objQuery);
 
 		const res = await makeRequest(endPoint, queryParams);
+		const resRow = await res.json();
 
-		const data: { data: T } = await res.json();
-		return { data: data.data };
+		const convertedData = converter(resRow.data);
+		return { data: convertedData };
 	} catch (error) {
-		console.error("Error fetch data for main screen" + error);
+		console.error("Error fetch data for screen " + error);
 		return { data: {} as T };
 	}
 };
@@ -61,10 +64,14 @@ export const getProjects = async (
 		const queryParams = new URLSearchParams(objQuery);
 
 		const res = await makeRequest("projects", queryParams);
+
 		const data: { data: IProject[]; meta: IMeta } = await res.json();
-		return { data: data.data, meta: data.meta };
+
+		const projects = projectsConverter(data.data);
+
+		return { data: projects, meta: data.meta };
 	} catch (error) {
-		console.error("Error fetch data for main screen" + error);
+		console.error("Error fetch data for screen " + error);
 		return { data: [] as IProject[], meta: {} as IMeta };
 	}
 };

@@ -1,6 +1,6 @@
 import { IProject } from "@/utils/api/types/IProject";
 import React from "react";
-import styles from "@/assets/styles/shared/project.module.scss";
+import styles from "@/assets/css/shared/project.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { useCursorHover } from "@/hooks/useCursorHover";

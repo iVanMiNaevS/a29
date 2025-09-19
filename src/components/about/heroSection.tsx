@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useRef } from "react";
-import styles from "@/assets/styles/about.module.scss";
+import styles from "@/assets/css/about.module.scss";
 import { IAboutPageData } from "@/utils/api/types/screenTypes/IAboutScreen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";

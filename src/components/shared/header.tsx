@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { use, useEffect, useRef, useState } from "react";
-import styles from "@/assets/styles/shared/header.module.scss";
+import styles from "@/assets/css/shared/header.module.scss";
 import { AppRouter } from "@/utils/AppRouter";
 import Link from "next/link";
 import logo from "@/assets/images/logo_a29.jpg";

@@ -1,7 +1,7 @@
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { IImageFormat } from "@/utils/api/types/IImage";
 import React, { useRef } from "react";
-import styles from "@/assets/styles/shared/modalGallery.module.scss";
+import styles from "@/assets/css/shared/modalGallery.module.scss";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";

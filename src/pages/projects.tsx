@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
-import styles from "@/assets/styles/projects.module.scss";
+import styles from "@/assets/css/projects.module.scss";
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import {

@@ -3,7 +3,7 @@ import { IAboutPageData } from "@/utils/api/types/screenTypes/IAboutScreen";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import React, { useRef, useState } from "react";
-import styles from "@/assets/styles/about.module.scss";
+import styles from "@/assets/css/about.module.scss";
 import Image from "next/image";
 import { useCursorHover } from "@/hooks/useCursorHover";
 

@@ -1,7 +1,7 @@
 import { IProject } from "@/utils/api/types/IProject";
 import React from "react";
 import { Project } from "../shared/project";
-import styles from "@/assets/styles/projects.module.scss";
+import styles from "@/assets/css/projects.module.scss";
 import { HaveAQuestSection } from "../shared/haveAQuestSection";
 
 type props = {

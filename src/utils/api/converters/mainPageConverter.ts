@@ -8,7 +8,6 @@ import {
 import { seoConverter } from "./shared/seoConverter";
 
 export function mainPageConverter(apiData: any): IMainPageData {
-	console.log(apiData);
 	return {
 		id: apiData.id,
 		heroSection: {

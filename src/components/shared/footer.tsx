@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/assets/styles/shared/footer.module.scss";
+import styles from "@/assets/css/shared/footer.module.scss";
 import { AppRouter } from "@/utils/AppRouter";
 import Link from "next/link";
 import { useCursorHover } from "@/hooks/useCursorHover";

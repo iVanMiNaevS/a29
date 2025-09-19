@@ -7,7 +7,7 @@ import React, {
 	useState,
 } from "react";
 
-import styles from "@/assets/styles/shared/dropDownInfo.module.scss";
+import styles from "@/assets/css/shared/dropDownInfo.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 
 type props = {

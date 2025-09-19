@@ -1,5 +1,5 @@
 import { Layout } from "@/components/shared/layout";
-import "@/assets/styles/globals.css";
+import "@/assets/css/globals.css";
 import type { AppProps } from "next/app";
 import { StoreContext } from "@/store/useStore";
 import { rootStore } from "@/store/rootStore";

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/assets/styles/shared/buttonContact.module.scss";
+import styles from "@/assets/css/shared/buttonContact.module.scss";
 type props = {
 	onClick: () => void;
 	hoverProps: {

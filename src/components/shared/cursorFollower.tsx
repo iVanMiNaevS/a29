@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { observer } from "mobx-react-lite";
 import { useStore } from "@/store/useStore";
-import styles from "@/assets/styles/shared/cursorFollower.module.scss";
+import styles from "@/assets/css/shared/cursorFollower.module.scss";
 
 const CursorFollower = observer(() => {
 	const containerRef = useRef<HTMLDivElement>(null);

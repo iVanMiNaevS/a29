@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import styles from "@/assets/styles/shared/modal.module.scss";
+import styles from "@/assets/css/shared/modal.module.scss";
 import Image from "next/image";
 import closeIcon from "@/assets/images/icons/close.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { INotDoingSection } from "@/utils/api/types/screenTypes/IServicesScreen";
-import styles from "@/assets/styles/services.module.scss";
+import styles from "@/assets/css/services.module.scss";
 
 type Props = { data: INotDoingSection };
 

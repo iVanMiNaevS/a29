@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "@/assets/styles/about.module.scss";
+import styles from "@/assets/css/about.module.scss";
 import { IAboutPageData } from "@/utils/api/types/screenTypes/IAboutScreen";
 import { Swiper as SwiperType } from "swiper";
 import "swiper/css";

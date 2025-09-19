@@ -3,7 +3,7 @@ import {
 	ITeamMember,
 } from "@/utils/api/types/screenTypes/IAboutScreen";
 import React, { useState } from "react";
-import styles from "@/assets/styles/about.module.scss";
+import styles from "@/assets/css/about.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import Image from "next/image";
 import { IImageFormat } from "@/utils/api/types/IImage";

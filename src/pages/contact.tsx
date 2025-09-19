@@ -6,7 +6,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import React from "react";
 
-import styles from "@/assets/styles/contact.module.scss";
+import styles from "@/assets/css/contact.module.scss";
 import { ButtonContact } from "@/components/shared/buttonContact";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";

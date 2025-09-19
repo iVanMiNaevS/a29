@@ -1,7 +1,7 @@
 import { AppRouter } from "@/utils/AppRouter";
 import Link from "next/link";
 import React from "react";
-import styles from "@/assets/styles/404.module.scss";
+import styles from "@/assets/css/404.module.scss";
 import Head from "next/head";
 const Error404 = () => {
 	return (

@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/autoplay";
 import Link from "next/link";
 import Image from "next/image";
-import styles from "@/assets/styles/Home.module.scss";
+import styles from "@/assets/css/Home.module.scss";
 import notImage from "@/assets/images/notImage.jpg";
 import arrow from "@/assets/images/icons/review_arrow.svg";
 import { useCursorHover } from "@/hooks/useCursorHover";

@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import React, { useRef } from "react";
 
-import styles from "@/assets/styles/services.module.scss";
+import styles from "@/assets/css/services.module.scss";
 import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import { HaveAQuestSection } from "@/components/shared/haveAQuestSection";
 import { NotDoingSection } from "@/components/services/notDoingSection";

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/assets/styles/politikaCookie.module.scss";
+import styles from "@/assets/css/politikaCookie.module.scss";
 const politikaCookie = () => {
 	return (
 		<div className="container">

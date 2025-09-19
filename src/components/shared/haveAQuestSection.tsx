@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ButtonContact } from "./buttonContact";
-import styles from "@/assets/styles/shared/haveAQuestSection.module.scss";
+import styles from "@/assets/css/shared/haveAQuestSection.module.scss";
 import { useCursorHover } from "@/hooks/useCursorHover";
 import { Modal } from "./modal";
 export const HaveAQuestSection = () => {

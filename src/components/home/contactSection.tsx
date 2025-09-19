@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/assets/styles/Home.module.scss";
+import styles from "@/assets/css/Home.module.scss";
 import Image from "next/image";
 import { IContactData } from "@/utils/api/types/IContactInfo";
 import Link from "next/link";

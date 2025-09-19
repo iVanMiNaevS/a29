@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@/assets/styles/Home.module.scss";
+import styles from "@/assets/css/Home.module.scss";
 import { HeroSection } from "@/components/home/heroSection";
 import { GetStaticProps } from "next";
 import { getInfoPageService } from "@/utils/api/getInfoPageService";

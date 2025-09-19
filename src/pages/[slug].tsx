@@ -6,7 +6,7 @@ import { IProject } from "@/utils/api/types/IProject";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
 import React, { useState } from "react";
-import styles from "@/assets/styles/oneProject.module.scss";
+import styles from "@/assets/css/oneProject.module.scss";
 import { DropDownInfo } from "@/components/shared/dropDownInfo";
 import Image from "next/image";
 import notImage from "@/assets/images/notImage.jpg";

@@ -1,4 +1,4 @@
-import { projectsConverter } from "./converters/shared/projectsConverter";
+import { universalConverter } from "./converters/universalConverter";
 import { IMeta } from "./types/IMeta";
 import { IProject } from "./types/IProject";
 import { IMainPageData } from "./types/screenTypes/IMainScreen";
@@ -67,7 +67,7 @@ export const getProjects = async (
 
 		const data: { data: IProject[]; meta: IMeta } = await res.json();
 
-		const projects = projectsConverter(data.data);
+		const projects = universalConverter(data.data);
 
 		return { data: projects, meta: data.meta };
 	} catch (error) {

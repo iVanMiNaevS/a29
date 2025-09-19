@@ -1,2 +1,10 @@
+# *
 User-agent: *
 Disallow: /
+
+# Host
+Host: https://a29.studio
+
+# Sitemaps
+Sitemap: https://a29.studio/sitemap.xml
+Sitemap: https://a29.studio/sitemaps/projects-sitemap.xml

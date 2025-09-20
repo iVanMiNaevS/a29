@@ -70,6 +70,7 @@
 
 .teamSec {
 	padding: var(--section-padding);
+
 	&__header {
 		display: flex;
 		gap: 70px;
@@ -106,18 +107,17 @@
 			gap: 20px;
 		}
 	}
+	.fadeOut {
+		opacity: 0;
+	}
+	.fadeIn {
+		opacity: 1;
+	}
 	&__mainCard {
 		width: 100%;
 		height: 100%;
-		animation: append 0.2s;
-		@keyframes append {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-			}
-		}
+		transition: opacity 0.2s ease-in-out;
+
 		img {
 			width: 100%;
 			height: 100%;

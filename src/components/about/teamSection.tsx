@@ -17,6 +17,7 @@ export const TeamSection = ({ data }: props) => {
 	const [mainMember, setMainMember] = useState<ITeamMember>(
 		data.teamSection.team[0]
 	);
+	const [isFading, setIsFading] = useState(false);
 	const [layout, setLayout] = useState<"default" | "alternative">("default");
 	const [buttons, setButtons] = useState([
 		{
@@ -66,7 +67,17 @@ export const TeamSection = ({ data }: props) => {
 			active: false,
 		},
 	]);
+	const changeMainMember = (member: ITeamMember) => {
+		if (member.id === mainMember.id) return;
 
+		// начинаем фейд-аут
+		setIsFading(true);
+
+		setTimeout(() => {
+			setMainMember(member);
+			setIsFading(false); // запускаем фейд-ин
+		}, 200); // время совпадает с transition
+	};
 	return (
 		<section className={styles.teamSec}>
 			<div className={styles.teamSec__header}>
@@ -97,7 +108,12 @@ export const TeamSection = ({ data }: props) => {
 				<p className="sectionContent h3">{data.teamSection.title}</p>
 			</div>
 			<div className={`${styles.teamSec__teamWrapp} ${styles[layout]}`}>
-				<div className={styles.teamSec__mainCard} style={{ gridArea: "main" }}>
+				<div
+					className={`${styles.teamSec__mainCard} ${
+						isFading ? styles.fadeOut : styles.fadeIn
+					}`}
+					style={{ gridArea: "main" }}
+				>
 					{mainMember && (
 						<>
 							<Image
@@ -125,7 +141,7 @@ export const TeamSection = ({ data }: props) => {
 							}
 							style={{ gridArea: area }}
 							onClick={() => {
-								setMainMember(member);
+								changeMainMember(member);
 							}}
 							{...hoverProps}
 						>

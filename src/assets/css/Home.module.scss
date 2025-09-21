@@ -325,6 +325,9 @@
 @media (max-width: 770px) {
 	.aboutSection {
 		gap: 30px;
+		&__desc {
+			padding-top: 20px;
+		}
 	}
 	.projectsSection {
 		&__projects {
@@ -336,7 +339,7 @@
 			padding-bottom: 30px;
 		}
 		&__button {
-			padding: 40px 65px;
+			padding: 40px 57.5px;
 		}
 	}
 	.reviewsSection {
@@ -388,10 +391,10 @@
 		}
 		&__content {
 			flex-direction: column;
-			gap: 70px;
+			gap: 30px;
 		}
 		&__contactInfoWrapp {
-			gap: 40px;
+			gap: 20px;
 			width: 100%;
 		}
 

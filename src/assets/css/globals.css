@@ -25,6 +25,7 @@ main {
 	min-height: calc(100vh - 300px);
 }
 * {
+	line-height: 1.2;
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
@@ -99,7 +100,7 @@ pre {
 
 @media (max-width: 1600px) {
 	.sectionContent {
-		flex: 1 0 67.076%;
+		flex: 1 0 calc(67.33% - 20px);
 	}
 }
 
@@ -127,6 +128,7 @@ pre {
 	}
 	.h2,
 	h2 {
+		letter-spacing: 0.2px;
 		font-size: 22px;
 	}
 	.h3,

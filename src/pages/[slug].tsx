@@ -69,7 +69,10 @@ export const OneProject = ({ project }: props) => {
 							<DropDownInfo notBorder title="Планировочное решение">
 								{project.layouts ? (
 									<Image
-										src={process.env.NEXT_PUBLIC_URL + project.layouts[0].url}
+										src={
+											process.env.NEXT_PUBLIC_URL +
+											project.layouts[0].formats.medium.url
+										}
 										placeholder="blur"
 										blurDataURL={project.layouts[0].blurHash}
 										alt={
@@ -77,8 +80,8 @@ export const OneProject = ({ project }: props) => {
 												? project.layouts[0].alternativeText
 												: "Планировочное решение"
 										}
-										width={project.layouts[0].width}
-										height={project.layouts[0].height}
+										width={project.layouts[0].formats.medium.width}
+										height={project.layouts[0].formats.medium.height}
 									/>
 								) : (
 									<Image
